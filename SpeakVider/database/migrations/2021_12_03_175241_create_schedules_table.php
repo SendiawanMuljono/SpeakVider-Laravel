@@ -17,10 +17,11 @@ class CreateSchedulesTable extends Migration
             $table->id();
             $table->foreignId('speakerID');
             $table->foreign('speakerID')->references('id')->on('speakers');
-            $table->date('date');
+            $table->string('day', 255);
             $table->string('startTime', 255);
             $table->string('endTime', 255);
             $table->integer('price');
+            $table->integer('status');
             $table->timestamps();
         });
     }

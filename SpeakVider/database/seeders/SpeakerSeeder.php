@@ -24,7 +24,7 @@ class SpeakerSeeder extends Seeder
             ['email' => 'speaker7@speakvider.com', 'password' => 'speaker7', 'phoneNumber' => '0006', 'cv' => 'speaker7cv.jpg', 'photo' => 'speaker7.jpg', 'skill' => 'speaker'],
             ['email' => 'speaker8@speakvider.com', 'password' => 'speaker8', 'phoneNumber' => '0007', 'cv' => 'speaker8cv.jpg', 'photo' => 'speaker8.jpg', 'skill' => 'speaker'],
             ['email' => 'speaker9@speakvider.com', 'password' => 'speaker9', 'phoneNumber' => '0008', 'cv' => 'speaker9cv.jpg', 'photo' => 'speaker9.jpg', 'skill' => 'speaker'],
-            ['email' => 'speaker10@speakvider.com', 'password' => 'speaker10', 'phoneNumber' => '0009', 'cv' => 'speaker10cv.jpg', 'photo' => 'speaker10.jpg', 'skill' => 'speaker'],
+            ['email' => 'speaker10@speakvider.com', 'password' => 'speaker10', 'phoneNumber' => '0009', 'cv' => 'speaker10cv.jpg', 'photo' => 'speaker10.jpg', 'skill' => 'speaker']
         ];
 
         DB::table('speakers')->insert($speakers);

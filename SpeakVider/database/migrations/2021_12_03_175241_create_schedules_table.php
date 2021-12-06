@@ -16,7 +16,7 @@ class CreateSchedulesTable extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
             $table->foreignId('speakerID');
-            $table->foreign('speakerID')->references('id')->on('speakers');
+            $table->foreign('speakerID')->references('id')->on('speakers')->onDelete('cascade');
             $table->string('day', 255);
             $table->string('startTime', 255);
             $table->string('endTime', 255);

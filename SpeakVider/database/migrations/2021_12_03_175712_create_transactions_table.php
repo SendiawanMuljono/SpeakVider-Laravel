@@ -15,10 +15,10 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('userID');
-            $table->foreign('userID')->references('id')->on('users');
-            $table->foreignId('scheduleID');
-            $table->foreign('scheduleID')->references('id')->on('schedules');
+            $table->foreignId('userID')->nullable();
+            $table->foreign('userID')->references('id')->on('users')->onDelete('set null');
+            $table->foreignId('scheduleID')->nullable();
+            $table->foreign('scheduleID')->references('id')->on('schedules')->onDelete('set null');
             $table->string('status', 255);
             $table->timestamps();
         });

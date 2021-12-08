@@ -49,7 +49,7 @@
                         <div class="col-md-6 d-flex align-items-stretch">
                             <div class="info-wrap w-100 p-lg-5 p-4 img">
                                 <h3>Contact</h3>
-                                <p class="mb-4">We're open for any suggestion or just to have a chat</p>
+                                <p class="mb-4">We are open for any suggestion or just to have a chat</p>
                         <div class="dbox w-100 d-flex align-items-start">
                             <div class="icon d-flex align-items-center justify-content-center">
                                 <span class="fa fa-map-marker"></span>

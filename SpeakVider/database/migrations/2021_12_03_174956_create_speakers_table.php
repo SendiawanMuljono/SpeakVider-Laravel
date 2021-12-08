@@ -18,7 +18,7 @@ class CreateSpeakersTable extends Migration
             $table->string('email', 255);
             $table->string('password', 255);
             $table->string('phoneNumber', 255);
-            $table->string('cv', 255);
+            $table->string('about', 255);
             $table->string('photo', 255);
             $table->string('skill', 255);
             $table->timestamps();

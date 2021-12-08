@@ -1,0 +1,19 @@
+.navbar{
+    background-color: #edebeb;
+}
+
+.nav-link{
+    font-size: 20px;
+}
+
+.navigasi{
+    border-bottom: 1px solid black;
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid black;
+    background-color: #edebeb;
+}

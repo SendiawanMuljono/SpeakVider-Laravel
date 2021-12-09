@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{ asset('/assets/css/layout.css') }}">
         <link rel="stylesheet" href="{{ asset('/assets/css/aboutus.css') }}">
         <link rel="stylesheet" href="{{ asset('/assets/css/contactus.css') }}">
+        <link rel="stylesheet" href="{{ asset('/assets/css/speakerdetail.css') }}">
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
 
         <title></title>

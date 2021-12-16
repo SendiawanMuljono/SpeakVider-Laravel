@@ -9,11 +9,10 @@
         @foreach ($speakers as $speaker)
             <div class="col d-flex justify-content-center mb-5">
                 <div class="card" style="width: 18rem;">
-                    <a href="/aboutus">
+                    <a href="#">
                         <img src="{{ asset('assets/speakers/'.$speaker->photo) }}" class="card-img-top" width="250px" height="250px">
                         <div class="card-body d-flex flex-column align-items-center">
                             <h5 class="card-title">{{ $speaker->name }}</h5>
-                            <p class="card-text">Rp. {{ number_format($speaker->price,0,'.','.') }}</p>
                         </div>
                     </a>
                 </div>

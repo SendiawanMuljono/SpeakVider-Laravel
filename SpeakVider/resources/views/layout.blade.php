@@ -28,7 +28,6 @@
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#">All Speakers</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Transactions</a>
                         </li>

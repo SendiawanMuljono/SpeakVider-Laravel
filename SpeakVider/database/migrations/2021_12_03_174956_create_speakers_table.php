@@ -18,7 +18,6 @@ class CreateSpeakersTable extends Migration
             $table->string('name', 255);
             $table->string('email', 255);
             $table->string('phoneNumber', 255);
-            $table->integer('price');
             $table->string('about', 255);
             $table->string('photo', 255);
             $table->string('skill', 255);

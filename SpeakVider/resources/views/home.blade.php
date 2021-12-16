@@ -5,11 +5,11 @@
         <div class="d-flex justify-content-center mt-5 mb-5">
             <h3 class="bg-black text-white pt-1 pb-1 pl-4 pr-4 font-weight-bold">ABOUT US</h3>
         </div>
-        <div class="row row-cols-1 row-cols-lg-2">
+        <div class="row row-cols-1 row-cols-md-2">
             <div class="d-flex justify-content-center">
-                <img src="assets/image/banner_aboutus1.png" alt="" width="500px" height="500px">
+                <img src="assets/image/banner_aboutus1.png" alt="" width="100%" height="100%">
             </div>
-            <div>
+            <div class="mt-sm-4 mt-md-0">
                 <h4>Speakvider is a website that provides speakers for seminars or workshops. Everyone who needs speakers to hold seminars or workshops, can find trusted and professional speakers on this website. That way, this website will benefit both the speaker and the customer.</h4>
                 <div class="mt-5">
                     <a href="/aboutus">

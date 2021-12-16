@@ -31,7 +31,7 @@
             @foreach ($speakers as $speaker)
                 <div class="col d-flex justify-content-center mb-5">
                     <div class="card" style="width: 18rem;">
-                        <a href="#">
+                        <a href="/speakerdetail/{{ $speaker->id }}">
                             <img src="{{ asset('assets/speakers/'.$speaker->photo) }}" class="card-img-top" width="250px" height="250px">
                             <div class="card-body d-flex justify-content-center">
                                 <h5 class="card-title">{{ $speaker->name }}</h5>

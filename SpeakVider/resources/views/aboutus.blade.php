@@ -16,7 +16,7 @@
           <h3>Who We Are</h3>
           <h2>Your best partner to seeking for speaker.</h2>
           <p>
-            Speakvider is a website that provides speakers for seminars or workshops. So, people who have the ability and experience to be a speaker can register on this website. In addition, everyone who needs speakers to hold seminars or workshops, can find trusted and professional speakers on this website. That way, this website will benefit both the speaker and the customer.
+            Speakvider is a website that provides speakers for seminars or workshops. Everyone who needs speakers to hold seminars or workshops, can find trusted and professional speakers on this website. That way, this website will benefit both the speaker and the customer.
           </p>
           <p>
           The speakers that we provide on our website are guaranteed quality, not random speakers. They have a wide range of awards. In addition, we also have a top speaker containing the current best-selling speakers. however, usually top speakers cost more than regular speakers.

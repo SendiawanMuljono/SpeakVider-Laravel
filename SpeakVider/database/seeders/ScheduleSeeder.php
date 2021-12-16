@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ScheduleSeeder extends Seeder
 {
@@ -13,6 +14,10 @@ class ScheduleSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $schedules = [
+            // ['speakerID' => , 'day' => '', 'startTime' => '', 'endTime' => '', 'price' => , 'status' => ],
+        ];
+
+        DB::table('schedules')->insert($schedules);
     }
 }

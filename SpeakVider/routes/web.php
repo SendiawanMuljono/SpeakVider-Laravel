@@ -49,7 +49,9 @@ Route::get('/register', [RegisterController::class, 'index']);
 
 Route::get('/admin', [HomeController::class, 'viewHomeAdmin']);
 
-// Route::get('/admin/users', [UserController::class, 'viewHomeAdmin']);
+Route::get('/admin/users', [UserController::class, 'viewUsers']);
+Route::get('/admin/insertuser', [UserController::class, 'viewInsertUser']);
+Route::get('/admin/updateuser/{id}', [UserController::class, 'updateUser']);
 
 // Route::get('/admin/speakers', [SpeakerController::class, 'viewHomeAdmin']);
 

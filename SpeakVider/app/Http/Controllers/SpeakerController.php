@@ -40,6 +40,7 @@ class SpeakerController extends Controller
     public function viewAllSpeakers(){
         $speakers = Speaker::simplePaginate(9);
         return view('allspeakers',[
+            'title' => 'All Speakers',
             'speakers' => $speakers
         ]);
     }

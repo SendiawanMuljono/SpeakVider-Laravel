@@ -12,17 +12,21 @@ class UserController extends Controller
     public function viewUsers(){
         $users = User::all();
         return view('listusers', [
+            'title' => 'Users',
             'users' => $users
         ]);
     }
 
     public function viewInsertUser(){
-        return view('insertuser');
+        return view('insertuser', [
+            'title' => 'Insert User'
+        ]);
     }
 
     public function viewUpdateUser($userID){
         $user = User::where('id', $userID)->first();
         return view('updateuser', [
+            'title' => 'Update User',
             'user' => $user
         ]);
     }

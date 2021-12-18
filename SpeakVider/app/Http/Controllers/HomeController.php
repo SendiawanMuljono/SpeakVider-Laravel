@@ -12,6 +12,7 @@ class HomeController extends Controller
     public function viewHome(){
         $speakers = Speaker::where('id', '<=', 6)->get();
         return view('home', [
+            'title' => 'Home',
             'speakers' => $speakers
         ]);
     }
@@ -21,6 +22,7 @@ class HomeController extends Controller
         $countSpeakers = Speaker::count();
         $countTransactions = Transaction::count();
         return view('homeadmin', [
+            'title' => 'Home Admin',
             'countUsers' => $countUsers,
             'countSpeakers' => $countSpeakers,
             'countTransactions' => $countTransactions

@@ -48,3 +48,9 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::get('/register', [RegisterController::class, 'index']);
 
 Route::get('/admin', [UserController::class, 'viewHomeAdmin']);
+
+// Route::get('/admin/users', [UserController::class, 'viewHomeAdmin']);
+
+// Route::get('/admin/speakers', [UserController::class, 'viewHomeAdmin']);
+
+// Route::get('/admin/transactions', [UserController::class, 'viewHomeAdmin']);

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -24,14 +26,9 @@ Route::get('/home', [HomeController::class, 'viewHome']);
 
 Route::get('/allspeakers', [SpeakerController::class, 'viewAllSpeakers']);
 
-Route::get('/aboutus', function () {
-    return view('aboutus');
-});
+Route::get('/aboutus', [AboutUsController::class, 'viewAboutUs']);
 
-Route::get('/contactus', function () {
-    return view('contactus');
-});
-
+Route::get('/contactus', [ContactUsController::class, 'viewContactUs']);
 
 Route::get('/speakerdetail', function () {
     return view('speakerdetail');
@@ -48,7 +45,6 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::get('/register', [RegisterController::class, 'index']);
 
 Route::get('/admin', [HomeController::class, 'viewHomeAdmin']);
-
 Route::get('/admin/users', [UserController::class, 'viewUsers']);
 Route::get('/admin/users/insertuser', [UserController::class, 'viewInsertUser']);
 Route::get('/admin/users/updateuser/{userID}', [UserController::class, 'viewUpdateUser']);

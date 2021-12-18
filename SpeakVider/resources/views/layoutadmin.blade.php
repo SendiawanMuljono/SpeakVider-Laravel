@@ -29,6 +29,9 @@
                             <a class="nav-link" href="/admin/speakers">Speaker</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/admin/schedules">Schedule</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/admin/transactions">Transaction</a>
                         </li>
                     </ul>

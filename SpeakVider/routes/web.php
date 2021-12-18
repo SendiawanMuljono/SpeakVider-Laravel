@@ -51,5 +51,5 @@ Route::get('/admin/users/updateuser/{userID}', [UserController::class, 'viewUpda
 Route::delete('/admin/users/deleteuser/{userID}', [UserController::class, 'deleteUser']);
 
 // Route::get('/admin/speakers', [SpeakerController::class, 'viewHomeAdmin']);
-
+// Route::get('/admin/schedules', [ScheduleController::class, 'viewHomeAdmin']);
 // Route::get('/admin/transactions', [TransactionController::class, 'viewHomeAdmin']);

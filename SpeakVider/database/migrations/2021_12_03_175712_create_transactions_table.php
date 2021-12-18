@@ -19,6 +19,7 @@ class CreateTransactionsTable extends Migration
             $table->foreign('userID')->references('id')->on('users')->onDelete('set null');
             $table->foreignId('scheduleID')->nullable();
             $table->foreign('scheduleID')->references('id')->on('schedules')->onDelete('set null');
+            $table->date('transactionDate');
             $table->string('status', 255);
             $table->timestamps();
         });

@@ -32,9 +32,11 @@
                         </td>
                         <td>
                             <div class="d-flex justify-content-center">
-                                <a href="/admin/users/deleteuser/{{ $user->id }}">
+                                <form action="/admin/users/deleteuser/{{ $user->id }}" method="POST">
+                                    @csrf
+                                    @method('delete')
                                     <button class="bg-danger text-white font-weight-bold border-0">DELETE</button>
-                                </a>
+                                </form>
                             </div>
                         </td>
                     </tr>

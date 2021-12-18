@@ -17,10 +17,19 @@ class UserController extends Controller
     }
 
     public function viewInsertUser(){
-
+        return view('insertuser');
     }
 
-    public function viewUpdateUser(){
+    public function viewUpdateUser($userID){
+        $user = User::where('id', $userID)->first();
+        return view('updateuser', [
+            'user' => $user
+        ]);
+    }
 
+    public function deleteUser($userID){
+        $user = User::where('id', $userID)->first();
+        $user->delete();
+        return redirect()->back();
     }
 }

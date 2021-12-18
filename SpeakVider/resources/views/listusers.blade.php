@@ -32,7 +32,9 @@
                         </td>
                         <td>
                             <div class="d-flex justify-content-center">
-                                <button class="bg-danger text-white font-weight-bold border-0">DELETE</button>
+                                <a href="/admin/users/deleteuser/{{ $user->id }}">
+                                    <button class="bg-danger text-white font-weight-bold border-0">DELETE</button>
+                                </a>
                             </div>
                         </td>
                     </tr>

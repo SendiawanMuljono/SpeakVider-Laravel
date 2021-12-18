@@ -8,9 +8,6 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/assets/css/layout.css') }}">
-        <link rel="stylesheet" href="{{ asset('/assets/css/aboutus.css') }}">
-        <link rel="stylesheet" href="{{ asset('/assets/css/contactus.css') }}">
-        <link rel="stylesheet" href="{{ asset('/assets/css/speakerdetail.css') }}">
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
 
         <title></title>
@@ -27,15 +24,12 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/allspeakers">All Speakers</a>
+                            <a class="nav-link" aria-current="page" href="#">User</a>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Transactions</a>
+                            <a class="nav-link" href="#">Speaker</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/aboutus">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contactus">Contact Us</a>
+                            <a class="nav-link" href="#">Transaction</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">

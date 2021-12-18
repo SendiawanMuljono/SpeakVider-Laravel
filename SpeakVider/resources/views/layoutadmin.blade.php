@@ -24,15 +24,15 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/admin/users">User</a>
+                            <a class="nav-link" aria-current="page" href="/admin/users">Users</a>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/speakers">Speaker</a>
+                            <a class="nav-link" href="/admin/speakers">Speakers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/schedules">Schedule</a>
+                            <a class="nav-link" href="/admin/schedules">Schedules</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/transactions">Transaction</a>
+                            <a class="nav-link" href="/admin/transactions">Transactions</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">

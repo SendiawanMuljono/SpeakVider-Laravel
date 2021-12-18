@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SpeakerController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -52,4 +53,4 @@ Route::delete('/admin/users/deleteuser/{userID}', [UserController::class, 'delet
 
 // Route::get('/admin/speakers', [SpeakerController::class, 'viewHomeAdmin']);
 // Route::get('/admin/schedules', [ScheduleController::class, 'viewHomeAdmin']);
-// Route::get('/admin/transactions', [TransactionController::class, 'viewHomeAdmin']);
+Route::get('/admin/transactions', [TransactionController::class, 'viewTransactions']);

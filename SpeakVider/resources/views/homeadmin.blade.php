@@ -8,26 +8,32 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mt-5">
             <div class="col d-flex justify-content-center mb-5">
                 <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h4 class="card-title font-weight-bold">Total Users:</h4>
-                        <h1 class="display-4 card-text font-weight-bold d-flex justify-content-end">{{ $countUsers }}</h1>
-                    </div>
+                    <a href="/admin/users">
+                        <div class="card-body">
+                            <h4 class="card-title font-weight-bold">Total Users:</h4>
+                            <h1 class="display-4 card-text font-weight-bold d-flex justify-content-end">{{ $countUsers }}</h1>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="col d-flex justify-content-center mb-5">
                 <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h4 class="card-title font-weight-bold">Total Speakers:</h4>
-                        <h1 class="display-4 card-text font-weight-bold d-flex justify-content-end">{{ $countSpeakers }}</h1>
-                    </div>
+                    <a href="/admin/speakers">
+                        <div class="card-body">
+                            <h4 class="card-title font-weight-bold">Total Speakers:</h4>
+                            <h1 class="display-4 card-text font-weight-bold d-flex justify-content-end">{{ $countSpeakers }}</h1>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="col d-flex justify-content-center mb-5">
                 <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h4 class="card-title font-weight-bold">Total Transactions:</h4>
-                        <h1 class="display-4 card-text font-weight-bold d-flex justify-content-end">{{ $countTransactions }}</h1>
-                    </div>
+                    <a href="/admin/transactions">
+                        <div class="card-body">
+                            <h4 class="card-title font-weight-bold">Total Transactions:</h4>
+                            <h1 class="display-4 card-text font-weight-bold d-flex justify-content-end">{{ $countTransactions }}</h1>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

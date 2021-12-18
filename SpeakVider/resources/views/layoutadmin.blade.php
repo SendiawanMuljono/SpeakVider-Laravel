@@ -24,17 +24,17 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">User</a>
+                            <a class="nav-link" aria-current="page" href="/admin/users">User</a>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Speaker</a>
+                            <a class="nav-link" href="/admin/speakers">Speaker</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Transaction</a>
+                            <a class="nav-link" href="/admin/transactions">Transaction</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Logout</a>
+                            <a class="nav-link" href="/login">Logout</a>
                         </li>
                     </ul>
                 </div>

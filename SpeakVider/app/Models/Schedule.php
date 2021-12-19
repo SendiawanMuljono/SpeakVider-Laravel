@@ -13,7 +13,7 @@ class Schedule extends Model
         return $this->hasOne(Transaction::class, 'scheduleID', 'id');
     }
 
-    public function speaker(){
+    public function speakers(){
         return $this->belongsTo(Speaker::class, 'speakerID', 'id');
     }
 }

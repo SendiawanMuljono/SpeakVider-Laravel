@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="{{ asset('/assets/css/speakerdetail.css') }}">
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
 
-        <title>{{ $title }}</title>
+        <title>Speakvider</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light navigasi">

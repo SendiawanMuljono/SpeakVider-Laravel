@@ -17,7 +17,7 @@
 
           <div class="col-12 mb-0">
             <figure class="view overlay rounded z-depth-1 main-img">
-                <img src="/assets/image/santidewi.png"
+                <img src="{{ asset('assets/speakers/'.$speaker->photo) }}"
                   class="img-fluid z-depth-1">
             </figure>
           </div>
@@ -27,7 +27,7 @@
     </div>
     <div class="col-md-6">
 
-      <h3>Santi Dewi</h3>
+      <h3>{{ $speaker->name }}</h3>
       <p class="mb-2 text-muted text-uppercase small">CO-FOUNDER OF CANTIKMU.COM</p>
       <p><span class="mr-1"><strong>About</strong></span></p>
       <p class="pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit
@@ -38,21 +38,15 @@
           <tbody>
             <tr>
               <th class="pl-0 w-25" scope="row"><strong>Email</strong></th>
-              <td>santidewi@gmail.com</td>
+              <td>{{ $speaker->email }}</td>
             </tr>
             <tr>
               <th class="pl-0 w-25" scope="row"><strong>Phone Number</strong></th>
-              <td>081256433245</td>
+              <td>{{ $speaker->phoneNumber }}</td>
             </tr>
             <tr>
               <th class="pl-0 w-25" scope="row"><strong>Skill</strong></th>
-              <td>
-                <ul class="list-group">
-                    <li>Beauty</li>
-                    <li>Art</li>
-                    <li>Business</li>
-                  </ul>
-              </td>
+              <td>{{ $speaker->skill }}</td>
             </tr>
           </tbody>
         </table>
@@ -66,11 +60,11 @@
         <div class="container-fluid">
              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav" id="daychoose">
-                    <a class="nav-link" id = "day"  href="#">Monday</a>
-                    <a class="nav-link" id = "day"  href="#">Tuesday</a>
-                    <a class="nav-link" id = "day"  href="#">Wednesday</a>
-                    <a class="nav-link" id = "day"  href="#">Thursday</a>
-                    <a class="nav-link" id = "day"  href="#">Friday</a>
+                    <a class="nav-link" id = "day"  href="/speakerdetail/{{ $speaker->id }}/Monday">Monday</a>
+                    <a class="nav-link" id = "day"  href="/speakerdetail/{{ $speaker->id }}/Tuesday">Tuesday</a>
+                    <a class="nav-link" id = "day"  href="/speakerdetail/{{ $speaker->id }}/Wednesday">Wednesday</a>
+                    <a class="nav-link" id = "day"  href="/speakerdetail/{{ $speaker->id }}/Thursday">Thursday</a>
+                    <a class="nav-link" id = "day"  href="/speakerdetail/{{ $speaker->id }}/Friday">Friday</a>
                 </div>
 
              </div>
@@ -82,13 +76,15 @@
 
     <div class="container overflow-hidden">
       <div class="row gy-5">
-        <div class="col-3">
-          <div class="p-3 border border-dark bg-light">
-            <div>Start time : 17.00</div>
-            <div>End time : 18.00</div>
-            <div>Price : Rp. 500.000</div>
+        @foreach ($schedule as $schedule)
+          <div class="col-3">
+            <div class="p-3 border border-dark bg-light">
+              <div>Start time : {{ $schedule->startTime }}</div>
+              <div>End time : {{ $schedule->endTime }}</div>
+              <div>Price : Rp. {{ $schedule->price }}</div>
+            </div>
           </div>
-        </div>
+        @endforeach
       </div>
     </div>
 

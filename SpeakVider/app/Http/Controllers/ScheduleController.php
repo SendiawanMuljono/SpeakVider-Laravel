@@ -9,25 +9,25 @@ class ScheduleController extends Controller
 {
     public function getDayScheduleMonday(Request $request){
         $schedule = Schedule::join('speaker', 'speakerID', '=', 'speaker.id')->where('speakerID',
-        '=', $request->route('id'))-> where('day', '=', 'Monday');
+        '=', $request->route('id'))-> where('day', '=', 'Monday')->where('status', '=', 1);
         return $schedule;
     }
 
     public function getDayScheduleTuesday(Request $request){
         $schedule = Schedule::join('speaker', 'speakerID', '=', 'speaker.id')->where('speakerID',
-        '=', $request->route('id'))-> where('day', '=', 'Tuesday');
+        '=', $request->route('id'))-> where('day', '=', 'Tuesday')->where('status', '=', 1);
         return $schedule;
     }
 
     public function getDayScheduleWednesday(Request $request){
         $schedule = Schedule::join('speaker', 'speakerID', '=', 'speaker.id')->where('speakerID',
-        '=', $request->route('id'))-> where('day', '=', 'Wednesday');
+        '=', $request->route('id'))-> where('day', '=', 'Wednesday')->where('status', '=', 1);
         return $schedule;
     }
 
     public function getDayScheduleThursday(Request $request){
         $schedule = Schedule::join('speaker', 'speakerID', '=', 'speaker.id')->where('speakerID',
-        '=', $request->route('id'))-> where('day', '=', 'Thursday');
+        '=', $request->route('id'))-> where('day', '=', 'Thursday')->where('status', '=', 1);
         return $schedule;
     }
 

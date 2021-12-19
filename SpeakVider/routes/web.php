@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,26 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layout');
 });
+
+Route::get('/aboutus', function () {
+    return view('aboutus');
+});
+
+Route::get('/contactus', function () {
+    return view('contactus');
+});
+
+
+Route::get('/speakerdetail', function () {
+    return view('speakerdetail');
+});
+
+Route::get('/speakerdetail/{id}/Monday', [SpeakerController::class, 'getDetailSpeakerMonday']);
+Route::get('/speakerdetail/{id}/Tuesday', [SpeakerController::class, 'getDetailSpeakerTuesday']);
+Route::get('/speakerdetail/{id}/Wednesday', [SpeakerController::class, 'getDetailSpeakerWednesday']);
+Route::get('/speakerdetail/{id}/Thursday', [SpeakerController::class, 'getDetailSpeakerThursday']);
+Route::get('/speakerdetail/{id}/Friday', [SpeakerController::class, 'getDetailSpeakerFriday']);
+
+Route::get('/login', [LoginController::class, 'index']);
+
+Route::get('/register', [RegisterController::class, 'index']);

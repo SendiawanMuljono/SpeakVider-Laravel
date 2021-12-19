@@ -1,0 +1,33 @@
+.about .content {
+    background-color: #f5f5f5;
+    padding: 40px;
+  }
+
+  .about{
+    margin-top: 8%;
+    margin-bottom: 10%;
+  }
+
+  .about h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #a6a4ab;
+    text-transform: uppercase;
+  }
+  .about h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #303030;
+  }
+  .about p {
+    margin: 15px 0 30px 0;
+    line-height: 24px;
+  }
+
+  #gambarabout{
+      margin: 5%;
+      height: 92%;
+      box-shadow: 10px 10px 8px #888888;
+  }
+
+

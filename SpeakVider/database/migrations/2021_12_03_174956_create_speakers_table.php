@@ -15,8 +15,8 @@ class CreateSpeakersTable extends Migration
     {
         Schema::create('speakers', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 255);
             $table->string('email', 255);
-            $table->string('password', 255);
             $table->string('phoneNumber', 255);
             $table->string('about', 255);
             $table->string('photo', 255);

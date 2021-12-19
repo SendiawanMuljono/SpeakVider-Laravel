@@ -15,9 +15,10 @@ class UserSeeder extends Seeder
     public function run()
     {
         $users = [
-            ['email' => 'user1@gmail.com', 'password' => 'user1', 'phoneNumber' => '1000', 'photo' => 'user1.jpg'],
-            ['email' => 'user2@gmail.com', 'password' => 'user2', 'phoneNumber' => '2000', 'photo' => 'user2.jpg'],
-            ['email' => 'user3@gmail.com', 'password' => 'user3', 'phoneNumber' => '3000', 'photo' => 'user3.jpg']
+            ['email' => 'admin@speakvider.com', 'password' => 'admin', 'role' => 'admin', 'phoneNumber' => '1111'],
+            ['email' => 'user1@gmail.com', 'password' => 'user1', 'role' => 'user', 'phoneNumber' => '1000'],
+            ['email' => 'user2@gmail.com', 'password' => 'user2', 'role' => 'user', 'phoneNumber' => '2000'],
+            ['email' => 'user3@gmail.com', 'password' => 'user3', 'role' => 'user', 'phoneNumber' => '3000']
         ];
 
         DB::table('users')->insert($users);

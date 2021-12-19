@@ -9,16 +9,15 @@
         <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/assets/css/layout.css') }}">
         <link rel="stylesheet" href="{{ asset('/assets/css/aboutus.css') }}">
-        <link rel="stylesheet" href="{{ asset('/assets/css/contactus.css') }}">
         <link rel="stylesheet" href="{{ asset('/assets/css/speakerdetail.css') }}">
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
 
-        <title></title>
+        <title>{{ $title }}</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light navigasi">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/home">
                     <img src="/assets/logo/logo speakvider 1.png" alt="" width="197px" height="93px" class="d-inline-block align-text-top">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,8 +26,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">All Speakers</a>
-                        </li>
+                            <a class="nav-link" aria-current="page" href="/allspeakers">All Speakers</a>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Transactions</a>
                         </li>
@@ -37,6 +35,11 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/contactus">Contact Us</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Logout</a>
                         </li>
                     </ul>
                 </div>

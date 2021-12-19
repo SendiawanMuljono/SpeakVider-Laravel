@@ -36,4 +36,12 @@ class SpeakerController extends Controller
         $schedule = app('App\Controllers\ScheduleController')->getDayScheduleFriday();
         return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule);
     }
+
+    public function viewAllSpeakers(){
+        $speakers = Speaker::simplePaginate(9);
+        return view('allspeakers',[
+            'title' => 'All Speakers',
+            'speakers' => $speakers
+        ]);
+    }
 }

@@ -10,7 +10,7 @@ class TransactionController extends Controller
     public function viewTransactions(){
         $transactions = Transaction::all();
         return view('listtransactions', [
-            'title' => 'Transactions',
+            'title' => 'List Transactions',
             'transactions' => $transactions
         ]);
     }

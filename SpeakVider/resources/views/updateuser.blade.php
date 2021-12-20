@@ -13,19 +13,19 @@
                 <input type="password" name="password" placeholder="min. 8 chars" value="{{ $user->password }}" required><br>
                 <label for="role">Role</label>
                 <div>
-                    @if ($user->role === 'user')
-                        <input type="radio" name="role" value="user" checked>
-                        <label for="userRole">User</label>
-                    @else
-                        <input type="radio" name="role" value="user">
-                        <label for="userRole">User</label>
-                    @endif
                     @if ($user->role === 'admin')
                         <input type="radio" name="role" value="admin" required checked>
                         <label for="adminRole">Admin</label>
                      @else
                         <input type="radio" name="role" value="admin" required>
                         <label for="adminRole">Admin</label>
+                    @endif
+                    @if ($user->role === 'user')
+                        <input type="radio" name="role" value="user" checked>
+                        <label for="userRole">User</label>
+                    @else
+                        <input type="radio" name="role" value="user">
+                        <label for="userRole">User</label>
                     @endif
                 </div><br>
                 <label for="phoneNumber">Phone Number</label>

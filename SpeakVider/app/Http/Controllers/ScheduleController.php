@@ -36,4 +36,63 @@ class ScheduleController extends Controller
         '=', $request->route('id'))-> where('day', '=', 'Friday')->where('status', '=', 1)->get();
         return $schedule;
     }
+
+    public function viewSchedules(){
+        $schedules = Schedule::all();
+        return view('listschedules', [
+            'title' => 'List Schedules',
+            'schedules' => $schedules
+        ]);
+    }
+
+    public function viewInsertSchedule(){
+        return view('insertschedule', [
+            'title' => 'Insert Schedule'
+        ]);
+    }
+
+    // public function insertUser(Request $request){
+    //     $validated = $request->validate([
+    //         'email' => 'unique:users,email',
+    //         'password' => 'min:8',
+    //         'phoneNumber' => 'min:9'
+    //     ]);
+    //     $user = new User();
+    //     $user->email = $request->email;
+    //     $user->password = $request->password;
+    //     $user->role = $request->role;
+    //     $user->phoneNumber = $request->phoneNumber;
+    //     $user->save();
+    //     return redirect()->to('/admin/users');
+    // }
+
+    /*
+    public function viewUpdateUser($userID){
+        $user = User::where('id', $userID)->first();
+        return view('updateuser', [
+            'title' => 'Update User',
+            'user' => $user
+        ]);
+    }
+
+    public function updateUser($userID, Request $request){
+        $validated = $request->validate([
+            'email' => 'unique:users,email,'.$userID,
+            'password' => 'min:8',
+            'phoneNumber' => 'min:9'
+        ]);
+        $user = User::find($userID);
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->role = $request->role;
+        $user->phoneNumber = $request->phoneNumber;
+        $user->save();
+        return redirect()->to('/admin/users');
+    }
+*/
+    public function deleteSchedule($scheduleID){
+        $schedule = Schedule::where('id', $scheduleID)->first();
+        $schedule->delete();
+        return redirect()->back();
+    }
 }

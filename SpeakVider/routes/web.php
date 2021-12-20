@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SpeakerController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
@@ -52,7 +53,6 @@ Route::post('/admin/users/insertuser', [UserController::class, 'insertUser']);
 Route::get('/admin/users/updateuser/{userID}', [UserController::class, 'viewUpdateUser']);
 Route::put('/admin/users/updateuser/{userID}', [UserController::class, 'updateUser']);
 Route::delete('/admin/users/deleteuser/{userID}', [UserController::class, 'deleteUser']);
-
 Route::get('/admin/speakers', [SpeakerController::class, 'viewSpeakers']);
 Route::get('/admin/speakers/insertspeaker', [SpeakerController::class, 'viewInsertSpeaker']);
 Route::post('/admin/speakers/insertspeaker', [SpeakerController::class, 'insertSpeaker']);
@@ -60,5 +60,11 @@ Route::get('/admin/speakers/updatespeaker/{speakerID}', [SpeakerController::clas
 Route::put('/admin/speakers/updatespeaker/{speakerID}', [SpeakerController::class, 'updateSpeaker']);
 Route::delete('/admin/speakers/deletespeaker/{speakerID}', [SpeakerController::class, 'deleteSpeaker']);
 
-// Route::get('/admin/schedules', [ScheduleController::class, 'viewHomeAdmin']);
+Route::get('/admin/schedules', [ScheduleController::class, 'viewSchedules']);
+Route::get('/admin/schedules/insertschedule', [ScheduleController::class, 'viewInsertSchedule']);
+Route::post('/admin/schedules/insertschedule', [ScheduleController::class, 'insertSchedule']);
+Route::get('/admin/schedules/updateschedule/{scheduleID}', [ScheduleController::class, 'viewUpdateSchedule']);
+Route::put('/admin/schedules/updateschedule/{scheduleID}', [ScheduleController::class, 'updateSchedule']);
+Route::delete('/admin/schedules/deleteschedule/{scheduleID}', [ScheduleController::class, 'deleteSchedule']);
+
 Route::get('/admin/transactions', [TransactionController::class, 'viewTransactions']);

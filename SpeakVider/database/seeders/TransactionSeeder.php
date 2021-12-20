@@ -15,11 +15,6 @@ class TransactionSeeder extends Seeder
     public function run()
     {
         $transactions = [
-            ['userID' => 1, 'scheduleID' => 1, 'transactionDate' => '2021-12-01', 'status' => 'undone'],
-            ['userID' => 1, 'scheduleID' => 5, 'transactionDate' => '2021-12-02', 'status' => 'undone'],
-            ['userID' => 1, 'scheduleID' => 10, 'transactionDate' => '2021-12-03', 'status' => 'undone'],
-            ['userID' => 1, 'scheduleID' => 15, 'transactionDate' => '2021-12-04', 'status' => 'undone'],
-            ['userID' => 1, 'scheduleID' => 20, 'transactionDate' => '2021-12-05', 'status' => 'undone'],
             ['userID' => 2, 'scheduleID' => 1, 'transactionDate' => '2021-12-01', 'status' => 'undone'],
             ['userID' => 2, 'scheduleID' => 2, 'transactionDate' => '2021-12-02', 'status' => 'undone'],
             ['userID' => 2, 'scheduleID' => 3, 'transactionDate' => '2021-12-02', 'status' => 'undone'],

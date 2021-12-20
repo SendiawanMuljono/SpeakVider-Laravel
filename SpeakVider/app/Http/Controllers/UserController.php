@@ -24,13 +24,12 @@ class UserController extends Controller
     }
 
     public function insertUser(Request $request){
-        $user = new User();
         $validated = $request->validate([
-            'email' => 'required|unique:users,email',
-            'password' => 'required|min:8',
-            'role' => 'required',
-            'phoneNumber' => 'required|min:9'
+            'email' => 'unique:users,email',
+            'password' => 'min:8',
+            'phoneNumber' => 'min:9'
         ]);
+        $user = new User();
         $user->email = $request->email;
         $user->password = $request->password;
         $user->role = $request->role;
@@ -45,6 +44,21 @@ class UserController extends Controller
             'title' => 'Update User',
             'user' => $user
         ]);
+    }
+
+    public function updateUser($userID, Request $request){
+        $validated = $request->validate([
+            'email' => 'unique:users,email,'.$userID,
+            'password' => 'min:8',
+            'phoneNumber' => 'min:9'
+        ]);
+        $user = User::find($userID);
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->role = $request->role;
+        $user->phoneNumber = $request->phoneNumber;
+        $user->save();
+        return redirect()->to('/admin/users');
     }
 
     public function deleteUser($userID){

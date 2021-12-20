@@ -50,6 +50,7 @@ Route::get('/admin/users', [UserController::class, 'viewUsers']);
 Route::get('/admin/users/insertuser', [UserController::class, 'viewInsertUser']);
 Route::post('/admin/users/insertuser', [UserController::class, 'insertUser']);
 Route::get('/admin/users/updateuser/{userID}', [UserController::class, 'viewUpdateUser']);
+Route::put('/admin/users/updateuser/{userID}', [UserController::class, 'updateUser']);
 Route::delete('/admin/users/deleteuser/{userID}', [UserController::class, 'deleteUser']);
 
 // Route::get('/admin/speakers', [SpeakerController::class, 'viewHomeAdmin']);

@@ -23,6 +23,10 @@ class UserController extends Controller
         ]);
     }
 
+    public function insertUser(Request $request){
+        return redirect()->to('/admin/users');
+    }
+
     public function viewUpdateUser($userID){
         $user = User::where('id', $userID)->first();
         return view('updateuser', [

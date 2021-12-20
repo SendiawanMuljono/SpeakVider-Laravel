@@ -67,17 +67,9 @@ class SpeakerController extends Controller
             'photo' => 'image|mimes:png,jpg,jpeg'
         ]);
 
-        //Get File
         $file = $request->file('photo');
-        //Modify Image Name to Save
         $photoName = $file->getClientOriginalName();
-
-        //Save to Storage
-        Storage::putFileAs('public/assets/speakers', $file, $photoName);
-        // //Get Image Path to save to DB
-        // $imagePath = 'images/'.$imageName;
-        // Storage::delete('public/'.$series->image);
-        // $series->image = $imagePath;
+        $request->photo->move(public_path('/assets/speakers'), $photoName);
 
         $speaker = new Speaker();
         $speaker->name = $request->name;
@@ -113,11 +105,10 @@ class SpeakerController extends Controller
         $user->save();
         return redirect()->to('/admin/users');
     }
-
-    public function deleteUser($userID){
-        $user = User::where('id', $userID)->first();
-        $user->delete();
+*/
+    public function deleteSpeaker($speakerID){
+        $speaker = Speaker::where('id', $speakerID)->first();
+        $speaker->delete();
         return redirect()->back();
     }
-*/
 }

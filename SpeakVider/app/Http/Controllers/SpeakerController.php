@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Speaker;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class SpeakerController extends Controller
@@ -82,32 +83,45 @@ class SpeakerController extends Controller
         return redirect()->to('/admin/speakers');
     }
 
-/*
-    public function viewUpdateUser($userID){
-        $user = User::where('id', $userID)->first();
-        return view('updateuser', [
-            'title' => 'Update User',
-            'user' => $user
+    public function viewUpdateSpeaker($speakerID){
+        $speaker = Speaker::where('id', $speakerID)->first();
+        return view('updatespeaker', [
+            'title' => 'Update Speaker',
+            'speaker' => $speaker
         ]);
     }
 
-    public function updateUser($userID, Request $request){
+    public function updateSpeaker($speakerID, Request $request){
         $validated = $request->validate([
-            'email' => 'unique:users,email,'.$userID,
-            'password' => 'min:8',
-            'phoneNumber' => 'min:9'
+            'email' => 'unique:speakers,email,'.$speakerID,
+            'phoneNumber' => 'min:9',
+            'photo' => 'image|mimes:png,jpg,jpeg'
         ]);
-        $user = User::find($userID);
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->role = $request->role;
-        $user->phoneNumber = $request->phoneNumber;
-        $user->save();
-        return redirect()->to('/admin/users');
+
+        $speaker = Speaker::find($speakerID);
+        $speaker->name = $request->name;
+        $speaker->email = $request->email;
+        $speaker->phoneNumber = $request->phoneNumber;
+        $speaker->about = $request->about;
+        $file = $request->file('photo');
+        if($file != null){
+            $photoName = $file->getClientOriginalName();
+            if(File::exists(public_path('assets/speakers/'.$speaker->photo))){
+                File::delete(public_path('assets/speakers/'.$speaker->photo));
+            }
+            $request->photo->move(public_path('/assets/speakers'), $photoName);
+            $speaker->photo = $photoName;
+        }
+        $speaker->skill = $request->skill;
+        $speaker->save();
+        return redirect()->to('/admin/speakers');
     }
-*/
+
     public function deleteSpeaker($speakerID){
         $speaker = Speaker::where('id', $speakerID)->first();
+        if(File::exists(public_path('assets/speakers/'.$speaker->photo))){
+            File::delete(public_path('assets/speakers/'.$speaker->photo));
+        }
         $speaker->delete();
         return redirect()->back();
     }

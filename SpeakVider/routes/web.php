@@ -59,7 +59,6 @@ Route::post('/admin/speakers/insertspeaker', [SpeakerController::class, 'insertS
 Route::get('/admin/speakers/updatespeaker/{speakerID}', [SpeakerController::class, 'viewUpdateSpeaker']);
 Route::put('/admin/speakers/updatespeaker/{speakerID}', [SpeakerController::class, 'updateSpeaker']);
 Route::delete('/admin/speakers/deletespeaker/{speakerID}', [SpeakerController::class, 'deleteSpeaker']);
-
 Route::get('/admin/schedules', [ScheduleController::class, 'viewSchedules']);
 Route::get('/admin/schedules/insertschedule', [ScheduleController::class, 'viewInsertSchedule']);
 Route::post('/admin/schedules/insertschedule', [ScheduleController::class, 'insertSchedule']);

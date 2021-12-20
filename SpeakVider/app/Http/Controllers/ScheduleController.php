@@ -67,30 +67,31 @@ class ScheduleController extends Controller
         return redirect()->to('/admin/schedules');
     }
 
-    /*
-    public function viewUpdateUser($userID){
-        $user = User::where('id', $userID)->first();
-        return view('updateuser', [
-            'title' => 'Update User',
-            'user' => $user
+    public function viewUpdateSchedule($scheduleID){
+        $schedule = Schedule::where('id', $scheduleID)->first();
+        return view('updateschedule', [
+            'title' => 'Update Schedule',
+            'schedule' => $schedule
         ]);
     }
 
-    public function updateUser($userID, Request $request){
+    public function updateSchedule($scheduleID, Request $request){
         $validated = $request->validate([
-            'email' => 'unique:users,email,'.$userID,
-            'password' => 'min:8',
-            'phoneNumber' => 'min:9'
+            'speakerID' => 'exists:speakers,id',
+            'price' => 'gt:299999',
+            'status' => 'numeric|min:0|max:1'
         ]);
-        $user = User::find($userID);
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->role = $request->role;
-        $user->phoneNumber = $request->phoneNumber;
-        $user->save();
-        return redirect()->to('/admin/users');
+        $schedule = Schedule::find($scheduleID);
+        $schedule->speakerID = $request->speakerID;
+        $schedule->day = $request->day;
+        $schedule->startTime = $request->startTime;
+        $schedule->endTime = $request->endTime;
+        $schedule->price = $request->price;
+        $schedule->status = $request->status;
+        $schedule->save();
+        return redirect()->to('/admin/schedules');
     }
-*/
+
     public function deleteSchedule($scheduleID){
         $schedule = Schedule::where('id', $scheduleID)->first();
         $schedule->delete();

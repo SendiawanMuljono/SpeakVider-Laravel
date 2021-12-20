@@ -64,7 +64,7 @@ class SpeakerController extends Controller
         $validated = $request->validate([
             'email' => 'unique:speakers,email',
             'phoneNumber' => 'min:9',
-            'photo' => 'mimes:png,jpg,jpeg'
+            'photo' => 'image|mimes:png,jpg,jpeg'
         ]);
 
         //Get File

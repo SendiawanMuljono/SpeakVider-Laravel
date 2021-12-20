@@ -6,16 +6,16 @@
         <form action="/admin/schedules/insertschedule" method="POST">
             @csrf
             <div class="d-flex flex-column">
+                <label for="speakerID">Speaker ID</label>
+                <input type="number" name="speakerID" required><br>
                 <label for="day">Day</label>
                 <input type="text" name="day" placeholder="Monday/Tuesday/..." required><br>
                 <label for="startTime">Start Time</label>
-                <input type="text" name="startTime" placeholder="start time" required><br>
+                <input type="time" name="startTime" placeholder="start time" required><br>
                 <label for="endTime">End Time</label>
-                <input type="text" name="endTime" placeholder="end time" required><br>
+                <input type="time" name="endTime" placeholder="end time" required><br>
                 <label for="price">Price</label>
                 <input type="number" name="price" placeholder="price" required><br>
-                <label for="status">Status</label>
-                <input type="number" name="status" placeholder="0 or 1" required><br>
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>

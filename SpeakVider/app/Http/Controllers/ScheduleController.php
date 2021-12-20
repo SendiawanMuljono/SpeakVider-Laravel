@@ -51,20 +51,21 @@ class ScheduleController extends Controller
         ]);
     }
 
-    // public function insertUser(Request $request){
-    //     $validated = $request->validate([
-    //         'email' => 'unique:users,email',
-    //         'password' => 'min:8',
-    //         'phoneNumber' => 'min:9'
-    //     ]);
-    //     $user = new User();
-    //     $user->email = $request->email;
-    //     $user->password = $request->password;
-    //     $user->role = $request->role;
-    //     $user->phoneNumber = $request->phoneNumber;
-    //     $user->save();
-    //     return redirect()->to('/admin/users');
-    // }
+    public function insertSchedule(Request $request){
+        $validated = $request->validate([
+            'speakerID' => 'exists:speakers,id',
+            'price' => 'gt:299999'
+        ]);
+        $schedule = new Schedule();
+        $schedule->speakerID = $request->speakerID;
+        $schedule->day = $request->day;
+        $schedule->startTime = $request->startTime;
+        $schedule->endTime = $request->endTime;
+        $schedule->price = $request->price;
+        $schedule->status = 1;
+        $schedule->save();
+        return redirect()->to('/admin/schedules');
+    }
 
     /*
     public function viewUpdateUser($userID){

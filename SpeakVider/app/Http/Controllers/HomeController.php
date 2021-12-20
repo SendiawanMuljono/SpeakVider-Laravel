@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function viewHome(){
-        $speakers = Speaker::where('id', '<=', 6)->get();
+        $speakers = Speaker::simplePaginate(6);
         return view('home', [
             'title' => 'Home',
             'speakers' => $speakers

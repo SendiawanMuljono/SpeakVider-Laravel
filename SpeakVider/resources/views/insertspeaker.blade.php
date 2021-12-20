@@ -3,7 +3,7 @@
 @section('yieldPlace')
     <div class="container-fluid mt-5 mb-5">
         <h2>Insert Speaker</h2>
-        <form action="/admin/speakers/insertspeaker" method="POST">
+        <form action="/admin/speakers/insertspeaker" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="d-flex flex-column">
                 <label for="name">Name</label>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Speaker;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SpeakerController extends Controller
 {
@@ -59,22 +60,37 @@ class SpeakerController extends Controller
         ]);
     }
 
-/*
-    public function insertUser(Request $request){
+    public function insertSpeaker(Request $request){
         $validated = $request->validate([
-            'email' => 'unique:users,email',
-            'password' => 'min:8',
-            'phoneNumber' => 'min:9'
+            'email' => 'unique:speakers,email',
+            'phoneNumber' => 'min:9',
+            'photo' => 'mimes:png,jpg,jpeg'
         ]);
-        $user = new User();
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->role = $request->role;
-        $user->phoneNumber = $request->phoneNumber;
-        $user->save();
-        return redirect()->to('/admin/users');
+
+        //Get File
+        $file = $request->file('photo');
+        //Modify Image Name to Save
+        $photoName = $file->getClientOriginalName();
+
+        //Save to Storage
+        Storage::putFileAs('public/assets/speakers', $file, $photoName);
+        // //Get Image Path to save to DB
+        // $imagePath = 'images/'.$imageName;
+        // Storage::delete('public/'.$series->image);
+        // $series->image = $imagePath;
+
+        $speaker = new Speaker();
+        $speaker->name = $request->name;
+        $speaker->email = $request->email;
+        $speaker->phoneNumber = $request->phoneNumber;
+        $speaker->about = $request->about;
+        $speaker->photo = $photoName;
+        $speaker->skill = $request->skill;
+        $speaker->save();
+        return redirect()->to('/admin/speakers');
     }
 
+/*
     public function viewUpdateUser($userID){
         $user = User::where('id', $userID)->first();
         return view('updateuser', [

@@ -15,7 +15,7 @@
                 <label for="about">About</label>
                 <input type="text" name="about" placeholder="describe about speaker" required><br>
                 <label for="image">Photo</label>
-                <input type="file" name="photo" placeholder="1" required><br>
+                <input type="file" name="photo" id="photo" placeholder="1" required><br>
                 <label for="skill">Skill</label>
                 <input type="text" name="skill" placeholder="Communicative, Sociable, etc" required><br>
                 @if ($errors->any())

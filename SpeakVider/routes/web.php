@@ -66,5 +66,4 @@ Route::post('/admin/schedules/insertschedule', [ScheduleController::class, 'inse
 Route::get('/admin/schedules/updateschedule/{scheduleID}', [ScheduleController::class, 'viewUpdateSchedule']);
 Route::put('/admin/schedules/updateschedule/{scheduleID}', [ScheduleController::class, 'updateSchedule']);
 Route::delete('/admin/schedules/deleteschedule/{scheduleID}', [ScheduleController::class, 'deleteSchedule']);
-
 Route::get('/admin/transactions', [TransactionController::class, 'viewTransactions']);

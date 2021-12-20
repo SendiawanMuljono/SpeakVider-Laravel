@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Speaker;
 use Illuminate\Http\Request;
 
-class SpeakerController extends Controller 
+class SpeakerController extends Controller
 {
     public function getDetailSpeakerMonday(Request $request){
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
@@ -44,4 +44,64 @@ class SpeakerController extends Controller
             'speakers' => $speakers
         ]);
     }
+
+    public function viewSpeakers(){
+        $speakers = Speaker::all();
+        return view('listspeakers', [
+            'title' => 'List Speakers',
+            'speakers' => $speakers
+        ]);
+    }
+
+    public function viewInsertSpeaker(){
+        return view('insertspeaker', [
+            'title' => 'Insert Speaker'
+        ]);
+    }
+
+/*
+    public function insertUser(Request $request){
+        $validated = $request->validate([
+            'email' => 'unique:users,email',
+            'password' => 'min:8',
+            'phoneNumber' => 'min:9'
+        ]);
+        $user = new User();
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->role = $request->role;
+        $user->phoneNumber = $request->phoneNumber;
+        $user->save();
+        return redirect()->to('/admin/users');
+    }
+
+    public function viewUpdateUser($userID){
+        $user = User::where('id', $userID)->first();
+        return view('updateuser', [
+            'title' => 'Update User',
+            'user' => $user
+        ]);
+    }
+
+    public function updateUser($userID, Request $request){
+        $validated = $request->validate([
+            'email' => 'unique:users,email,'.$userID,
+            'password' => 'min:8',
+            'phoneNumber' => 'min:9'
+        ]);
+        $user = User::find($userID);
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->role = $request->role;
+        $user->phoneNumber = $request->phoneNumber;
+        $user->save();
+        return redirect()->to('/admin/users');
+    }
+
+    public function deleteUser($userID){
+        $user = User::where('id', $userID)->first();
+        $user->delete();
+        return redirect()->back();
+    }
+*/
 }

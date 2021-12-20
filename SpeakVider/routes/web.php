@@ -53,6 +53,12 @@ Route::get('/admin/users/updateuser/{userID}', [UserController::class, 'viewUpda
 Route::put('/admin/users/updateuser/{userID}', [UserController::class, 'updateUser']);
 Route::delete('/admin/users/deleteuser/{userID}', [UserController::class, 'deleteUser']);
 
-// Route::get('/admin/speakers', [SpeakerController::class, 'viewHomeAdmin']);
+Route::get('/admin/speakers', [SpeakerController::class, 'viewSpeakers']);
+Route::get('/admin/speakers/insertspeaker', [SpeakerController::class, 'viewInsertSpeaker']);
+Route::post('/admin/speakers/insertspeaker', [SpeakerController::class, 'insertSpeaker']);
+Route::get('/admin/speakers/updatespeaker/{speakerID}', [SpeakerController::class, 'viewUpdateSpeaker']);
+Route::put('/admin/speakers/updatespeaker/{speakerID}', [SpeakerController::class, 'updateSpeaker']);
+Route::delete('/admin/speakers/deletespeaker/{speakerID}', [SpeakerController::class, 'deleteSpeaker']);
+
 // Route::get('/admin/schedules', [ScheduleController::class, 'viewHomeAdmin']);
 Route::get('/admin/transactions', [TransactionController::class, 'viewTransactions']);

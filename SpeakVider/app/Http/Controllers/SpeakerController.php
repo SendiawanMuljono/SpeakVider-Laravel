@@ -69,7 +69,7 @@ class SpeakerController extends Controller
         ]);
 
         $file = $request->file('photo');
-        $photoName = $file->getClientOriginalName();
+        $photoName = time().' '.$file->getClientOriginalName();
         $request->photo->move(public_path('/assets/speakers'), $photoName);
 
         $speaker = new Speaker();
@@ -105,7 +105,7 @@ class SpeakerController extends Controller
         $speaker->about = $request->about;
         $file = $request->file('photo');
         if($file != null){
-            $photoName = $file->getClientOriginalName();
+            $photoName = time().' '.$file->getClientOriginalName();
             if(File::exists(public_path('assets/speakers/'.$speaker->photo))){
                 File::delete(public_path('assets/speakers/'.$speaker->photo));
             }

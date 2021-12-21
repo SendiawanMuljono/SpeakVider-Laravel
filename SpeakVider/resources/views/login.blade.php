@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="{{ asset('/assets/css/login.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 <body>
     <div class="header">
@@ -29,37 +31,52 @@
     </div>
 
     <div class="content">
-        <form action="" method="post">
+        <form action="/login" method="post">
+            @csrf
             <div class="card-login">
-                <div class="card-login-atas">
+                <div class="card-login-atas mt-5">
                     <div class="card-login-atas-kiri">
                         <b>Login</b>
                     </div>
                 </div>
                 <div class="card-login-tengah">
                     <div class="isi-tengah">
+
+
                         <div class="card-tengah-isi"><b>Email</b></div>
-                        <div class="card-tengah-isi">
-                            <input type="email" placeholder="Email">
+                        <div class="form-floating">
+                            <div class="card-tengah-isi">
+                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"  id="email" placeholder="Email" required value="{{old ('email')}}" >
+                            </div>
+                            @error('email')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+
                         </div>
                     </div>
 
                     <div class="isi-tengah">
                         <div class="card-tengah-isi"><b>Password</b></div>
-                        <div class="card-tengah-isi">
-                            <input type="password" placeholder="Password">
+                        <div class="form-floating">
+                            <div class="card-tengah-isi">
+                                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"  id="password" placeholder="Password" required value="{{old ('password')}}" >
+                            </div>
+                            @error('password')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+
                         </div>
                     </div>
 
                 </div>
 
                 <div class="card-login-bawah">
-                    <button>
+                    <button class=" mt-5 rounded-pill"type="submit">
                         Login
                     </button>
                 </div>
 
-                <div class="forgetpass">
+                <div class="forgetpass mt-5">
                     <p>Forget Your Password ?</p>
                 </div>
 

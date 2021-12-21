@@ -43,8 +43,10 @@ Route::get('/speakerdetail/{id}/Thursday', [SpeakerController::class, 'getDetail
 Route::get('/speakerdetail/{id}/Friday', [SpeakerController::class, 'getDetailSpeakerFriday']);
 
 Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/admin', [HomeController::class, 'viewHomeAdmin']);
 Route::get('/admin/users', [UserController::class, 'viewUsers']);

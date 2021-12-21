@@ -44,7 +44,7 @@ body{
 
 .card-login{
     justify-content: center;
-    height: 600px;
+    height: 700px;
     width: 900px;
     display: flex;
     flex-direction: column;
@@ -95,7 +95,7 @@ input{
 
 input[type=email]{
     background: #ecf0f3;
-    padding: 10px;
+    padding: 20px;
     padding-left: 20px;
     width: 90%;
     height: 90%;
@@ -107,7 +107,7 @@ input[type=email]{
 
 input[type=password]{
     background: #ecf0f3;
-    padding: 10px;
+    padding: 20px;
     padding-left: 20px;
     width: 90%;
     height: 90%;

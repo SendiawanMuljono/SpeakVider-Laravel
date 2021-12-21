@@ -6,7 +6,7 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">No</th>
                     <th scope="col">Schedule ID</th>
                     <th scope="col">Transaction Date</th>
                     <th scope="col">Price</th>
@@ -20,12 +20,12 @@
                         <td  class="text-center" colspan="6">No Transaction</td>
                     </tr>
                 @else
-                    @foreach ($transactions as $transaction)
+                    @foreach ($transactions as $index => $transaction)
                         <form action="/transactions/updatestatus/{{$transaction->id}}" method="POST">
                             @csrf
                             @method('put')
                             <tr>
-                                <td>{{ $transaction->id }}</td>
+                                <td>{{$index + 1}}</td>
                                 <td>{{ $transaction->schedule->speakerID}}</td>
                                 <td>{{ $transaction->transactionDate}} {{$transaction->schedule->startTime}}-{{$transaction->schedule->endTime}}</td>
                                 <td>Rp. {{ $transaction->schedule->price }}</td>

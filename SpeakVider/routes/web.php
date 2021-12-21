@@ -28,6 +28,10 @@ Route::get('/home', [HomeController::class, 'viewHome']);
 
 Route::get('/allspeakers', [SpeakerController::class, 'viewAllSpeakers']);
 
+Route::get('/transactions/{userID}', [TransactionController::class, 'viewTransactionsbyUser']);
+
+Route::put('/transactions/updatestatus/{transactionID}', [TransactionController::class, 'updateTransactionStatusByUser']);
+
 Route::get('/aboutus', [AboutUsController::class, 'viewAboutUs']);
 
 Route::get('/contactus', [ContactUsController::class, 'viewContactUs']);

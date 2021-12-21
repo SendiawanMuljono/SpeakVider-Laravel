@@ -28,7 +28,7 @@
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="/allspeakers">All Speakers</a>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Transactions</a>
+                            <a class="nav-link" href="/transactions/2">Transactions</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/aboutus">About Us</a>

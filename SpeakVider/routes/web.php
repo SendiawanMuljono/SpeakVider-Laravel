@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'viewHome']);
 
-Route::get('/home', [HomeController::class, 'viewHome']);
+Route::get('/home', [HomeController::class, 'viewHome'])->middleware('auth');
 
 Route::get('/allspeakers', [SpeakerController::class, 'viewAllSpeakers']);
 
@@ -46,10 +46,11 @@ Route::get('/speakerdetail/{id}/Wednesday', [SpeakerController::class, 'getDetai
 Route::get('/speakerdetail/{id}/Thursday', [SpeakerController::class, 'getDetailSpeakerThursday']);
 Route::get('/speakerdetail/{id}/Friday', [SpeakerController::class, 'getDetailSpeakerFriday']);
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/register', [RegisterController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/admin', [HomeController::class, 'viewHomeAdmin']);

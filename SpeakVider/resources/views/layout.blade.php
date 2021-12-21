@@ -37,11 +37,31 @@
                             <a class="nav-link" href="/contactus">Contact Us</a>
                         </li>
                     </ul>
+                    @auth
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/login">Logout</a>
+                            <p class="nav-link">
+                                Hi, {{auth()->user()->email}}
+                            </p>
+                        </li>
+                        <li class="nav-item">
+                             <form action="/logout" method="post">
+                                @csrf
+                                <button type="submit" class="nav-link">Logout</button>
+                            </form>
                         </li>
                     </ul>
+                    @else
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">Register</a>
+                        </li>
+                    </ul>
+                    @endauth
+
                 </div>
             </div>
         </nav>

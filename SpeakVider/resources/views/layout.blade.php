@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{ asset('/assets/css/layout.css') }}">
         <link rel="stylesheet" href="{{ asset('/assets/css/aboutus.css') }}">
         <link rel="stylesheet" href="{{ asset('/assets/css/speakerdetail.css') }}">
+        <link rel="stylesheet" href="{{ asset('/assets/css/listtransaction.css') }}">
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
 
         <title>Speakvider</title>
@@ -62,6 +63,8 @@
             <p class="mt-2 mb-2">Copyright © 2021 SpeakVider</p>
         </div>
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+
+        @include('sweetalert::alert')
     </body>
 </html>
 <link rel="stylesheet" href="{{ asset('assets/css/layout.css') }}">

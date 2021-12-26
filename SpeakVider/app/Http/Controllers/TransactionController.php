@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Schedule;
+use App\Models\Speaker;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,7 +22,7 @@ class TransactionController extends Controller
     public function viewTransactionsByUser($userID){
         $currentUser = User::where('id', $userID) -> first();
         $countTransactions = Transaction::where('userID', $userID) -> count();
-        $transactions = Transaction::where('userID', $userID) -> get();
+        $transactions = Transaction::where('userID', $userID) -> simplePaginate(10);
         return view('listtransactionsuser', [
             'title' => 'Transactions',
             'currentUser' => $currentUser,
@@ -36,9 +38,7 @@ class TransactionController extends Controller
 
         $transaction->save();
 
-        // Session::flash('Payment Success');
-
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Payment success');
 
     }
 }

@@ -11,36 +11,54 @@ use Illuminate\Support\Facades\Storage;
 class SpeakerController extends Controller
 {
     public function getDetailSpeakerMonday(Request $request){
+        if(auth()->user()->role == "admin"){
+            return redirect()->to('/admin');
+        }
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
         $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleMonday($request);
         return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule);
     }
 
     public function getDetailSpeakerTuesday(Request $request){
+        if(auth()->user()->role == "admin"){
+            return redirect()->to('/admin');
+        }
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
         $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleTuesday($request);
         return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule);
     }
 
     public function getDetailSpeakerWednesday(Request $request){
+        if(auth()->user()->role == "admin"){
+            return redirect()->to('/admin');
+        }
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
         $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleWednesday($request);
         return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule);
     }
 
     public function getDetailSpeakerThursday(Request $request){
+        if(auth()->user()->role == "admin"){
+            return redirect()->to('/admin');
+        }
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
         $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleThursday($request);
         return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule);
     }
 
     public function getDetailSpeakerFriday(Request $request){
+        if(auth()->user()->role == "admin"){
+            return redirect()->to('/admin');
+        }
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
         $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleFriday($request);
         return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule);
     }
 
     public function viewAllSpeakers(){
+        if(auth()->user()->role == "admin"){
+            return redirect()->to('/admin');
+        }
         $speakers = Speaker::simplePaginate(9);
         return view('allspeakers',[
             'title' => 'All Speakers',
@@ -49,6 +67,9 @@ class SpeakerController extends Controller
     }
 
     public function viewSpeakerDetail($speakerID){
+        if(auth()->user()->role == "admin"){
+            return redirect()->to('/admin');
+        }
         $speaker = Speaker::find($speakerID);
         $schedule = Schedule::where('speakerID',$speakerID)->get();
         return view('speakerdetail',[

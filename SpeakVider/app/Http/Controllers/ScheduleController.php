@@ -8,6 +8,7 @@ use App\Models\Schedule;
 class ScheduleController extends Controller
 {
     public function getDayScheduleMonday(Request $request){
+        
         $schedule = Schedule::join('speakers', 'speakerID', '=', 'speakers.id')->where('speakerID',
         '=', $request->route('id'))-> where('day', '=', 'Monday')->where('status', '=', 1)->get();
         return $schedule;

@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function viewHome(){
+        if(auth()->user()->role == "admin"){
+            return redirect()->to('/admin');
+        }
         $speakers = Speaker::simplePaginate(6);
         return view('home', [
             'title' => 'Home',

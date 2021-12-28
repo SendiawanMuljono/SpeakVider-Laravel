@@ -24,7 +24,7 @@ class TransactionController extends Controller
 
     public function viewTransactionsByUser($userID){
         if(auth()->user()->role == "admin"){
-            return redirect()->to('/home');
+            return redirect()->to('/admin');
         }
         $currentUser = User::where('id', $userID) -> first();
         $countTransactions = Transaction::where('userID', $userID) -> count();
@@ -39,7 +39,7 @@ class TransactionController extends Controller
 
     public function updateTransactionStatusByUser($transactionID){
         if(auth()->user()->role == "admin"){
-            return redirect()->to('/home');
+            return redirect()->to('/admin');
         }
         $transaction = Transaction::find($transactionID);
 

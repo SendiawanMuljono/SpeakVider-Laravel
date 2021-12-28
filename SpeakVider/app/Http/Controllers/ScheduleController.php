@@ -38,6 +38,9 @@ class ScheduleController extends Controller
     }
 
     public function viewSchedules(){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         $schedules = Schedule::all();
         return view('listschedules', [
             'title' => 'List Schedules',
@@ -46,12 +49,18 @@ class ScheduleController extends Controller
     }
 
     public function viewInsertSchedule(){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         return view('insertschedule', [
             'title' => 'Insert Schedule'
         ]);
     }
 
     public function insertSchedule(Request $request){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         $validated = $request->validate([
             'speakerID' => 'exists:speakers,id',
             'price' => 'gt:299999'
@@ -68,6 +77,9 @@ class ScheduleController extends Controller
     }
 
     public function viewUpdateSchedule($scheduleID){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         $schedule = Schedule::where('id', $scheduleID)->first();
         return view('updateschedule', [
             'title' => 'Update Schedule',
@@ -76,6 +88,9 @@ class ScheduleController extends Controller
     }
 
     public function updateSchedule($scheduleID, Request $request){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         $validated = $request->validate([
             'speakerID' => 'exists:speakers,id',
             'price' => 'gt:299999',
@@ -93,6 +108,9 @@ class ScheduleController extends Controller
     }
 
     public function deleteSchedule($scheduleID){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         $schedule = Schedule::where('id', $scheduleID)->first();
         $schedule->delete();
         return redirect()->back();

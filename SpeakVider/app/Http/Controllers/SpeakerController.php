@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Schedule;
 use App\Models\Speaker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -47,7 +48,19 @@ class SpeakerController extends Controller
         ]);
     }
 
+    public function viewSpeakerDetail($speakerID){
+        $speaker = Speaker::find($speakerID);
+        $schedule = Schedule::where('speakerID',$speakerID)->get();
+        return view('speakerdetail',[
+            'speaker' => $speaker,
+            'schedule' => $schedule,
+        ]);
+    }
+
     public function viewSpeakers(){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         $speakers = Speaker::all();
         return view('listspeakers', [
             'title' => 'List Speakers',
@@ -56,12 +69,18 @@ class SpeakerController extends Controller
     }
 
     public function viewInsertSpeaker(){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         return view('insertspeaker', [
             'title' => 'Insert Speaker'
         ]);
     }
 
     public function insertSpeaker(Request $request){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         $validated = $request->validate([
             'email' => 'unique:speakers,email',
             'phoneNumber' => 'min:9',
@@ -84,6 +103,9 @@ class SpeakerController extends Controller
     }
 
     public function viewUpdateSpeaker($speakerID){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         $speaker = Speaker::where('id', $speakerID)->first();
         return view('updatespeaker', [
             'title' => 'Update Speaker',
@@ -92,6 +114,9 @@ class SpeakerController extends Controller
     }
 
     public function updateSpeaker($speakerID, Request $request){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         $validated = $request->validate([
             'email' => 'unique:speakers,email,'.$speakerID,
             'phoneNumber' => 'min:9',
@@ -118,6 +143,9 @@ class SpeakerController extends Controller
     }
 
     public function deleteSpeaker($speakerID){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         $speaker = Speaker::where('id', $speakerID)->first();
         if(File::exists(public_path('assets/speakers/'.$speaker->photo))){
             File::delete(public_path('assets/speakers/'.$speaker->photo));

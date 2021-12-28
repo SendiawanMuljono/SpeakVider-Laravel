@@ -23,12 +23,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'viewHome']);
-
-Route::get('/home', [HomeController::class, 'viewHome'])->middleware('auth');
+Route::get('/home', [HomeController::class, 'viewHome']);
 
 Route::get('/allspeakers', [SpeakerController::class, 'viewAllSpeakers']);
 
-Route::get('/transactions/{userID}', [TransactionController::class, 'viewTransactionsbyUser']);
+Route::get('/transactions/{userID}', [TransactionController::class, 'viewTransactionsbyUser'])->middleware('auth');
 
 Route::put('/transactions/updatestatus/{transactionID}', [TransactionController::class, 'updateTransactionStatusByUser']);
 
@@ -36,9 +35,7 @@ Route::get('/aboutus', [AboutUsController::class, 'viewAboutUs']);
 
 Route::get('/contactus', [ContactUsController::class, 'viewContactUs']);
 
-Route::get('/speakerdetail', function () {
-    return view('speakerdetail');
-});
+Route::get('/speakerdetail/{id}',[SpeakerController::class, 'viewSpeakerDetail']);
 
 Route::get('/speakerdetail/{id}/Monday', [SpeakerController::class, 'getDetailSpeakerMonday']);
 Route::get('/speakerdetail/{id}/Tuesday', [SpeakerController::class, 'getDetailSpeakerTuesday']);
@@ -48,28 +45,28 @@ Route::get('/speakerdetail/{id}/Friday', [SpeakerController::class, 'getDetailSp
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/admin', [HomeController::class, 'viewHomeAdmin']);
-Route::get('/admin/users', [UserController::class, 'viewUsers']);
-Route::get('/admin/users/insertuser', [UserController::class, 'viewInsertUser']);
+Route::get('/admin', [HomeController::class, 'viewHomeAdmin'])->middleware('auth');
+Route::get('/admin/users', [UserController::class, 'viewUsers'])->middleware('auth');
+Route::get('/admin/users/insertuser', [UserController::class, 'viewInsertUser'])->middleware('auth');
 Route::post('/admin/users/insertuser', [UserController::class, 'insertUser']);
-Route::get('/admin/users/updateuser/{userID}', [UserController::class, 'viewUpdateUser']);
+Route::get('/admin/users/updateuser/{userID}', [UserController::class, 'viewUpdateUser'])->middleware('auth');
 Route::put('/admin/users/updateuser/{userID}', [UserController::class, 'updateUser']);
 Route::delete('/admin/users/deleteuser/{userID}', [UserController::class, 'deleteUser']);
-Route::get('/admin/speakers', [SpeakerController::class, 'viewSpeakers']);
-Route::get('/admin/speakers/insertspeaker', [SpeakerController::class, 'viewInsertSpeaker']);
+Route::get('/admin/speakers', [SpeakerController::class, 'viewSpeakers'])->middleware('auth');
+Route::get('/admin/speakers/insertspeaker', [SpeakerController::class, 'viewInsertSpeaker'])->middleware('auth');
 Route::post('/admin/speakers/insertspeaker', [SpeakerController::class, 'insertSpeaker']);
-Route::get('/admin/speakers/updatespeaker/{speakerID}', [SpeakerController::class, 'viewUpdateSpeaker']);
+Route::get('/admin/speakers/updatespeaker/{speakerID}', [SpeakerController::class, 'viewUpdateSpeaker'])->middleware('auth');
 Route::put('/admin/speakers/updatespeaker/{speakerID}', [SpeakerController::class, 'updateSpeaker']);
 Route::delete('/admin/speakers/deletespeaker/{speakerID}', [SpeakerController::class, 'deleteSpeaker']);
-Route::get('/admin/schedules', [ScheduleController::class, 'viewSchedules']);
-Route::get('/admin/schedules/insertschedule', [ScheduleController::class, 'viewInsertSchedule']);
+Route::get('/admin/schedules', [ScheduleController::class, 'viewSchedules'])->middleware('auth');
+Route::get('/admin/schedules/insertschedule', [ScheduleController::class, 'viewInsertSchedule'])->middleware('auth');
 Route::post('/admin/schedules/insertschedule', [ScheduleController::class, 'insertSchedule']);
-Route::get('/admin/schedules/updateschedule/{scheduleID}', [ScheduleController::class, 'viewUpdateSchedule']);
+Route::get('/admin/schedules/updateschedule/{scheduleID}', [ScheduleController::class, 'viewUpdateSchedule'])->middleware('auth');
 Route::put('/admin/schedules/updateschedule/{scheduleID}', [ScheduleController::class, 'updateSchedule']);
 Route::delete('/admin/schedules/deleteschedule/{scheduleID}', [ScheduleController::class, 'deleteSchedule']);
-Route::get('/admin/transactions', [TransactionController::class, 'viewTransactions']);
+Route::get('/admin/transactions', [TransactionController::class, 'viewTransactions'])->middleware('auth');

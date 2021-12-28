@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Session;
 class TransactionController extends Controller
 {
     public function viewTransactions(){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         $transactions = Transaction::all();
         return view('listtransactions', [
             'title' => 'List Transactions',
@@ -20,6 +23,9 @@ class TransactionController extends Controller
     }
 
     public function viewTransactionsByUser($userID){
+        if(auth()->user()->role == "admin"){
+            return redirect()->to('/home');
+        }
         $currentUser = User::where('id', $userID) -> first();
         $countTransactions = Transaction::where('userID', $userID) -> count();
         $transactions = Transaction::where('userID', $userID) -> simplePaginate(10);
@@ -32,8 +38,11 @@ class TransactionController extends Controller
     }
 
     public function updateTransactionStatusByUser($transactionID){
+        if(auth()->user()->role == "admin"){
+            return redirect()->to('/home');
+        }
         $transaction = Transaction::find($transactionID);
-        
+
         $transaction->status = 'done';
 
         $transaction->save();

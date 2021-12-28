@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function viewUsers(){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         $users = User::all();
         return view('listusers', [
             'title' => 'List Users',
@@ -18,12 +21,18 @@ class UserController extends Controller
     }
 
     public function viewInsertUser(){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         return view('insertuser', [
             'title' => 'Insert User'
         ]);
     }
 
     public function insertUser(Request $request){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         $validated = $request->validate([
             'email' => 'unique:users,email',
             'password' => 'min:8',
@@ -39,6 +48,9 @@ class UserController extends Controller
     }
 
     public function viewUpdateUser($userID){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         $user = User::where('id', $userID)->first();
         return view('updateuser', [
             'title' => 'Update User',
@@ -47,6 +59,9 @@ class UserController extends Controller
     }
 
     public function updateUser($userID, Request $request){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         $validated = $request->validate([
             'email' => 'unique:users,email,'.$userID,
             'password' => 'min:8',
@@ -62,6 +77,9 @@ class UserController extends Controller
     }
 
     public function deleteUser($userID){
+        if(auth()->user()->role == "user"){
+            return redirect()->to('/home');
+        }
         $user = User::where('id', $userID)->first();
         $user->delete();
         return redirect()->back();

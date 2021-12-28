@@ -11,25 +11,37 @@
 </head>
 <body>
 
-    <div class="header">
-        <div class="leftheader">
-            <img src="../assets/logo speakvider 2.png" alt="">
-        </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navigasi border-bottom border-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/home">
+                <img src="/assets/logo/logo speakvider 1.png" alt="" width="197px" height="93px" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse fs-4" id="navbarNav">
 
-        <div class="rightheader">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                </ul>
 
-            <div class="need">
-                <h4>need</h4>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ms-3">
+                        need
+                    </li>
+                    <li class="nav-item ms-1 text-primary">
+                         Help?
+                    </li>
+                </ul>
+
             </div>
-
-
-            <div class="help">
-                <h4>Help?</h4>
-            </div>
-
         </div>
-
-    </div>
+    </nav>
 
     <div class="content">
         <form action="/register" method="post">

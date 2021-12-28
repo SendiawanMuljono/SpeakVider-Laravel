@@ -37,8 +37,11 @@
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/login">Logout</a>
-                        </li>
+                            <form action="/logout" method="post">
+                               @csrf
+                               <button type="submit" class="nav-link">Logout</button>
+                           </form>
+                       </li>
                     </ul>
                 </div>
             </div>

@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Schedule;
+use Illuminate\Support\Facades\Auth;
 
 class ScheduleController extends Controller
 {
     public function getDayScheduleMonday(Request $request){
-        
+
         $schedule = Schedule::join('speakers', 'speakerID', '=', 'speakers.id')->where('speakerID',
         '=', $request->route('id'))-> where('day', '=', 'Monday')->where('status', '=', 1)->get();
         return $schedule;
@@ -39,8 +40,10 @@ class ScheduleController extends Controller
     }
 
     public function viewSchedules(){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         $schedules = Schedule::all();
         return view('listschedules', [
@@ -50,8 +53,10 @@ class ScheduleController extends Controller
     }
 
     public function viewInsertSchedule(){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         return view('insertschedule', [
             'title' => 'Insert Schedule'
@@ -59,8 +64,10 @@ class ScheduleController extends Controller
     }
 
     public function insertSchedule(Request $request){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         $validated = $request->validate([
             'speakerID' => 'exists:speakers,id',
@@ -78,8 +85,10 @@ class ScheduleController extends Controller
     }
 
     public function viewUpdateSchedule($scheduleID){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         $schedule = Schedule::where('id', $scheduleID)->first();
         return view('updateschedule', [
@@ -89,8 +98,10 @@ class ScheduleController extends Controller
     }
 
     public function updateSchedule($scheduleID, Request $request){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         $validated = $request->validate([
             'speakerID' => 'exists:speakers,id',
@@ -109,8 +120,10 @@ class ScheduleController extends Controller
     }
 
     public function deleteSchedule($scheduleID){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         $schedule = Schedule::where('id', $scheduleID)->first();
         $schedule->delete();

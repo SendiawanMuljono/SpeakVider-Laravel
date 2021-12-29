@@ -5,14 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Schedule;
 use App\Models\Speaker;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class SpeakerController extends Controller
 {
     public function getDetailSpeakerMonday(Request $request){
-        if(auth()->user()->role == "admin"){
-            return redirect()->to('/admin');
+        if(Auth::check()){
+            if(auth()->user()->role == "admin"){
+                return redirect()->to('/admin');
+            }
         }
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
         $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleMonday($request);
@@ -20,8 +23,10 @@ class SpeakerController extends Controller
     }
 
     public function getDetailSpeakerTuesday(Request $request){
-        if(auth()->user()->role == "admin"){
-            return redirect()->to('/admin');
+        if(Auth::check()){
+            if(auth()->user()->role == "admin"){
+                return redirect()->to('/admin');
+            }
         }
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
         $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleTuesday($request);
@@ -29,8 +34,10 @@ class SpeakerController extends Controller
     }
 
     public function getDetailSpeakerWednesday(Request $request){
-        if(auth()->user()->role == "admin"){
-            return redirect()->to('/admin');
+        if(Auth::check()){
+            if(auth()->user()->role == "admin"){
+                return redirect()->to('/admin');
+            }
         }
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
         $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleWednesday($request);
@@ -38,8 +45,10 @@ class SpeakerController extends Controller
     }
 
     public function getDetailSpeakerThursday(Request $request){
-        if(auth()->user()->role == "admin"){
-            return redirect()->to('/admin');
+        if(Auth::check()){
+            if(auth()->user()->role == "admin"){
+                return redirect()->to('/admin');
+            }
         }
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
         $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleThursday($request);
@@ -47,8 +56,10 @@ class SpeakerController extends Controller
     }
 
     public function getDetailSpeakerFriday(Request $request){
-        if(auth()->user()->role == "admin"){
-            return redirect()->to('/admin');
+        if(Auth::check()){
+            if(auth()->user()->role == "admin"){
+                return redirect()->to('/admin');
+            }
         }
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
         $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleFriday($request);
@@ -56,8 +67,10 @@ class SpeakerController extends Controller
     }
 
     public function viewAllSpeakers(){
-        if(auth()->user()->role == "admin"){
-            return redirect()->to('/admin');
+        if(Auth::check()){
+            if(auth()->user()->role == "admin"){
+                return redirect()->to('/admin');
+            }
         }
         $speakers = Speaker::simplePaginate(9);
         return view('allspeakers',[
@@ -67,8 +80,10 @@ class SpeakerController extends Controller
     }
 
     public function viewSpeakerDetail($speakerID){
-        if(auth()->user()->role == "admin"){
-            return redirect()->to('/admin');
+        if(Auth::check()){
+            if(auth()->user()->role == "admin"){
+                return redirect()->to('/admin');
+            }
         }
         $speaker = Speaker::find($speakerID);
         $schedule = Schedule::where('speakerID',$speakerID)->get();
@@ -79,8 +94,10 @@ class SpeakerController extends Controller
     }
 
     public function viewSpeakers(){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         $speakers = Speaker::all();
         return view('listspeakers', [
@@ -90,8 +107,10 @@ class SpeakerController extends Controller
     }
 
     public function viewInsertSpeaker(){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         return view('insertspeaker', [
             'title' => 'Insert Speaker'
@@ -99,8 +118,10 @@ class SpeakerController extends Controller
     }
 
     public function insertSpeaker(Request $request){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         $validated = $request->validate([
             'email' => 'unique:speakers,email',
@@ -124,8 +145,10 @@ class SpeakerController extends Controller
     }
 
     public function viewUpdateSpeaker($speakerID){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         $speaker = Speaker::where('id', $speakerID)->first();
         return view('updatespeaker', [
@@ -135,8 +158,10 @@ class SpeakerController extends Controller
     }
 
     public function updateSpeaker($speakerID, Request $request){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         $validated = $request->validate([
             'email' => 'unique:speakers,email,'.$speakerID,
@@ -164,8 +189,10 @@ class SpeakerController extends Controller
     }
 
     public function deleteSpeaker($speakerID){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         $speaker = Speaker::where('id', $speakerID)->first();
         if(File::exists(public_path('assets/speakers/'.$speaker->photo))){

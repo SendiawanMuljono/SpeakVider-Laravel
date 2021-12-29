@@ -7,13 +7,16 @@ use App\Models\Speaker;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class TransactionController extends Controller
 {
     public function viewTransactions(){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         $transactions = Transaction::all();
         return view('listtransactions', [
@@ -23,8 +26,10 @@ class TransactionController extends Controller
     }
 
     public function viewTransactionsByUser($userID){
-        if(auth()->user()->role == "admin"){
-            return redirect()->to('/admin');
+        if(Auth::check()){
+            if(auth()->user()->role == "admin"){
+                return redirect()->to('/admin');
+            }
         }
         $currentUser = User::where('id', $userID) -> first();
         $countTransactions = Transaction::where('userID', $userID) -> count();
@@ -38,8 +43,10 @@ class TransactionController extends Controller
     }
 
     public function updateTransactionStatusByUser($transactionID){
-        if(auth()->user()->role == "admin"){
-            return redirect()->to('/admin');
+        if(Auth::check()){
+            if(auth()->user()->role == "admin"){
+                return redirect()->to('/admin');
+            }
         }
         $transaction = Transaction::find($transactionID);
 

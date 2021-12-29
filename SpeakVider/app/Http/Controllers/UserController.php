@@ -6,12 +6,15 @@ use App\Models\Speaker;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public function viewUsers(){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         $users = User::all();
         return view('listusers', [
@@ -21,8 +24,10 @@ class UserController extends Controller
     }
 
     public function viewInsertUser(){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         return view('insertuser', [
             'title' => 'Insert User'
@@ -30,8 +35,10 @@ class UserController extends Controller
     }
 
     public function insertUser(Request $request){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         $validated = $request->validate([
             'email' => 'unique:users,email',
@@ -48,8 +55,10 @@ class UserController extends Controller
     }
 
     public function viewUpdateUser($userID){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         $user = User::where('id', $userID)->first();
         return view('updateuser', [
@@ -59,8 +68,10 @@ class UserController extends Controller
     }
 
     public function updateUser($userID, Request $request){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         $validated = $request->validate([
             'email' => 'unique:users,email,'.$userID,
@@ -77,8 +88,10 @@ class UserController extends Controller
     }
 
     public function deleteUser($userID){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         $user = User::where('id', $userID)->first();
         $user->delete();

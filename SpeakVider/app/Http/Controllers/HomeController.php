@@ -24,8 +24,10 @@ class HomeController extends Controller
     }
 
     public function viewHomeAdmin(){
-        if(auth()->user()->role == "user"){
-            return redirect()->to('/home');
+        if(Auth::check()){
+            if(auth()->user()->role == "user"){
+                return redirect()->to('/home');
+            }
         }
         $countUsers = User::count();
         $countSpeakers = Speaker::count();

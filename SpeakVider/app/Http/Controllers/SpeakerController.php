@@ -66,6 +66,18 @@ class SpeakerController extends Controller
         return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule);
     }
 
+    public function getDetailSpeakerSaturday(Request $request){
+        $speaker = Speaker::where('id', '=', $request->route('id'))->first();
+        $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleSaturday($request);
+        return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule);
+    }
+
+    public function getDetailSpeakerSunday(Request $request){
+        $speaker = Speaker::where('id', '=', $request->route('id'))->first();
+        $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleSunday($request);
+        return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule);
+    }
+
     public function viewAllSpeakers(){
         if(Auth::check()){
             if(auth()->user()->role == "admin"){

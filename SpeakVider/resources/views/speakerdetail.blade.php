@@ -65,6 +65,8 @@
                     <a class="nav-link" id = "day"  href="/speakerdetail/{{ $speaker->id }}/Wednesday">Wednesday</a>
                     <a class="nav-link" id = "day"  href="/speakerdetail/{{ $speaker->id }}/Thursday">Thursday</a>
                     <a class="nav-link" id = "day"  href="/speakerdetail/{{ $speaker->id }}/Friday">Friday</a>
+                    <a class="nav-link" id = "day"  href="/speakerdetail/{{ $speaker->id }}/Saturday">Saturday</a>
+                    <a class="nav-link" id = "day"  href="/speakerdetail/{{ $speaker->id }}/Sunday">Sunday</a>
                 </div>
 
              </div>
@@ -82,6 +84,11 @@
               <div>Start time : {{ $schedule->startTime }}</div>
               <div>End time : {{ $schedule->endTime }}</div>
               <div>Price : Rp. {{ $schedule->price }}</div>
+              <div class="mt-5">
+                <a href="/booknow">
+                    <button class="rounded-pill btn-lg bg-success border-0 font-weight-bold text-white" style="margin-left: 20%">Book Now</button>
+                </a>
+            </div>
             </div>
           </div>
         @endforeach

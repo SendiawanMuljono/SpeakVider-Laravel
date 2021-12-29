@@ -42,6 +42,8 @@ Route::get('/speakerdetail/{id}/Tuesday', [SpeakerController::class, 'getDetailS
 Route::get('/speakerdetail/{id}/Wednesday', [SpeakerController::class, 'getDetailSpeakerWednesday']);
 Route::get('/speakerdetail/{id}/Thursday', [SpeakerController::class, 'getDetailSpeakerThursday']);
 Route::get('/speakerdetail/{id}/Friday', [SpeakerController::class, 'getDetailSpeakerFriday']);
+Route::get('/speakerdetail/{id}/Saturday', [SpeakerController::class, 'getDetailSpeakerSaturday']);
+Route::get('/speakerdetail/{id}/Sunday', [SpeakerController::class, 'getDetailSpeakerSunday']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

@@ -39,6 +39,18 @@ class ScheduleController extends Controller
         return $schedule;
     }
 
+    public function getDayScheduleSaturday(Request $request){
+        $schedule = Schedule::join('speakers', 'speakerID', '=', 'speakers.id')->where('speakerID',
+        '=', $request->route('id'))-> where('day', '=', 'Saturday')->where('status', '=', 1)->get();
+        return $schedule;
+    }
+
+    public function getDayScheduleSunday(Request $request){
+        $schedule = Schedule::join('speakers', 'speakerID', '=', 'speakers.id')->where('speakerID',
+        '=', $request->route('id'))-> where('day', '=', 'Sunday')->where('status', '=', 1)->get();
+        return $schedule;
+    }
+
     public function viewSchedules(){
         if(Auth::check()){
             if(auth()->user()->role == "user"){

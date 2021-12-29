@@ -6,20 +6,21 @@ use App\Models\Speaker;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
     public function viewHome(){
-        if(auth()->user()->role == "admin"){
-            return redirect()->to('/admin');
+        if(Auth::check()){
+            if(auth()->user()->role == "admin"){
+                return redirect()->to('/admin');
+            }
         }
-        else{
-            $speakers = Speaker::simplePaginate(6);
-            return view('home', [
-                'title' => 'Home',
-                'speakers' => $speakers
-            ]);
-        }
+        $speakers = Speaker::simplePaginate(6);
+        return view('home', [
+            'title' => 'Home',
+            'speakers' => $speakers
+        ]);
     }
 
     public function viewHomeAdmin(){

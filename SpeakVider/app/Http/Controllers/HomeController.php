@@ -13,11 +13,13 @@ class HomeController extends Controller
         if(auth()->user()->role == "admin"){
             return redirect()->to('/admin');
         }
-        $speakers = Speaker::simplePaginate(6);
-        return view('home', [
-            'title' => 'Home',
-            'speakers' => $speakers
-        ]);
+        else{
+            $speakers = Speaker::simplePaginate(6);
+            return view('home', [
+                'title' => 'Home',
+                'speakers' => $speakers
+            ]);
+        }
     }
 
     public function viewHomeAdmin(){

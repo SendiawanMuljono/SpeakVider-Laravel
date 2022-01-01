@@ -15,18 +15,24 @@ class ScheduleSeeder extends Seeder
     public function run()
     {
         $schedules = [
-            ['speakerID' => 1, 'day' => 'Monday', 'startTime' => '08:00', 'endTime' => '21:00', 'price' => 1800000, 'status' => 1],
+            ['speakerID' => 1, 'day' => 'Monday', 'startTime' => '08:00', 'endTime' => '10:00', 'price' => 1800000, 'status' => 1],
+            ['speakerID' => 1, 'day' => 'Monday', 'startTime' => '11:00', 'endTime' => '13:00', 'price' => 1800000, 'status' => 1],
+            ['speakerID' => 1, 'day' => 'Monday', 'startTime' => '14:00', 'endTime' => '16:00', 'price' => 1800000, 'status' => 1],
             ['speakerID' => 1, 'day' => 'Tuesday', 'startTime' => '08:00', 'endTime' => '21:00', 'price' => 1800000, 'status' => 1],
             ['speakerID' => 1, 'day' => 'Wednesday', 'startTime' => '08:00', 'endTime' => '19:00', 'price' => 1800000, 'status' => 1],
             ['speakerID' => 1, 'day' => 'Thursday', 'startTime' => '08:00', 'endTime' => '19:00', 'price' => 1800000, 'status' => 1],
             ['speakerID' => 1, 'day' => 'Friday', 'startTime' => '08:00', 'endTime' => '19:00', 'price' => 1800000, 'status' => 1],
             ['speakerID' => 1, 'day' => 'Saturday', 'startTime' => '08:00', 'endTime' => '21:00', 'price' => 2100000, 'status' => 1],
 
-            ['speakerID' => 2, 'day' => 'Monday', 'startTime' => '12:00', 'endTime' => '21:00', 'price' => 1200000, 'status' => 1],
+            ['speakerID' => 2, 'day' => 'Monday', 'startTime' => '12:00', 'endTime' => '14:00', 'price' => 1200000, 'status' => 1],
+            ['speakerID' => 2, 'day' => 'Monday', 'startTime' => '15:00', 'endTime' => '17:00', 'price' => 1200000, 'status' => 1],
             ['speakerID' => 2, 'day' => 'Tuesday', 'startTime' => '10:00', 'endTime' => '15:00', 'price' => 1400000, 'status' => 1],
             ['speakerID' => 2, 'day' => 'Wednesday', 'startTime' => '08:00', 'endTime' => '19:00', 'price' => 1400000, 'status' => 1],
 
-            ['speakerID' => 3, 'day' => 'Thursday', 'startTime' => '15:00', 'endTime' => '19:00', 'price' => 1000000, 'status' => 1],
+            ['speakerID' => 3, 'day' => 'Thursday', 'startTime' => '08:00', 'endTime' => '10:00', 'price' => 1000000, 'status' => 1],
+            ['speakerID' => 3, 'day' => 'Thursday', 'startTime' => '11:00', 'endTime' => '13:00', 'price' => 1000000, 'status' => 1],
+            ['speakerID' => 3, 'day' => 'Thursday', 'startTime' => '15:00', 'endTime' => '17:00', 'price' => 1000000, 'status' => 1],
+            ['speakerID' => 3, 'day' => 'Thursday', 'startTime' => '18:00', 'endTime' => '20:00', 'price' => 1000000, 'status' => 1],
             ['speakerID' => 3, 'day' => 'Friday', 'startTime' => '13:00', 'endTime' => '22:00', 'price' => 900000, 'status' => 1],
             ['speakerID' => 3, 'day' => 'Saturday', 'startTime' => '09:00', 'endTime' => '21:00', 'price' => 1500000, 'status' => 1],
 

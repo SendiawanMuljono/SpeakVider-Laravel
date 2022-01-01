@@ -9,6 +9,7 @@ use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SpeakerController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
+use App\Models\Schedule;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,6 +45,8 @@ Route::get('/speakerdetail/{id}/Thursday', [SpeakerController::class, 'getDetail
 Route::get('/speakerdetail/{id}/Friday', [SpeakerController::class, 'getDetailSpeakerFriday']);
 Route::get('/speakerdetail/{id}/Saturday', [SpeakerController::class, 'getDetailSpeakerSaturday']);
 Route::get('/speakerdetail/{id}/Sunday', [SpeakerController::class, 'getDetailSpeakerSunday']);
+
+Route::put('/schedules/updatestatus/{scheduleID}', [ScheduleController::class, 'updateStatusScheduleByUser']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

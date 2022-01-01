@@ -6,8 +6,10 @@ use App\Models\Schedule;
 use App\Models\Speaker;
 use App\Models\Transaction;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Session;
 
 class TransactionController extends Controller
@@ -56,5 +58,19 @@ class TransactionController extends Controller
 
         return redirect()->back()->with('success', 'Payment success');
 
+    }
+
+    public function insertScheduleToTransaction($schedule){
+        if(Auth::check()){
+            if(auth()->user()->role == "admin"){
+                return redirect()->to('/admin');
+            }
+        }
+        $transaction = new Transaction();
+        $transaction->userID = auth()->user()->id;
+        $transaction->scheduleID = $schedule->id;
+        $transaction->transactionDate = Carbon::now();
+        $transaction->status = 'undone';
+        $transaction->save();
     }
 }

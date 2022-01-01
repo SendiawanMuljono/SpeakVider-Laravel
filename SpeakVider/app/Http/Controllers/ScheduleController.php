@@ -4,50 +4,46 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Schedule;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ScheduleController extends Controller
 {
     public function getDayScheduleMonday(Request $request){
 
-        $schedule = Schedule::join('speakers', 'speakerID', '=', 'speakers.id')->where('speakerID',
-        '=', $request->route('id'))-> where('day', '=', 'Monday')->where('status', '=', 1)->get();
+        $schedule = Schedule::where('speakerID','=', $request->route('id'))-> where('day', '=', 'Monday')->where('status', '=', 1)->get();
         return $schedule;
     }
 
     public function getDayScheduleTuesday(Request $request){
-        $schedule = Schedule::join('speakers', 'speakerID', '=', 'speakers.id')->where('speakerID',
-        '=', $request->route('id'))-> where('day', '=', 'Tuesday')->where('status', '=', 1)->get();
+        $schedule = Schedule::where('speakerID','=', $request->route('id'))-> where('day', '=', 'Tuesday')->where('status', '=', 1)->get();
         return $schedule;
     }
 
     public function getDayScheduleWednesday(Request $request){
-        $schedule = Schedule::join('speakers', 'speakerID', '=', 'speakers.id')->where('speakerID',
-        '=', $request->route('id'))-> where('day', '=', 'Wednesday')->where('status', '=', 1)->get();
+        $schedule = Schedule::where('speakerID','=', $request->route('id'))-> where('day', '=', 'Wednesday')->where('status', '=', 1)->get();
         return $schedule;
     }
 
     public function getDayScheduleThursday(Request $request){
-        $schedule = Schedule::join('speakers', 'speakerID', '=', 'speakers.id')->where('speakerID',
-        '=', $request->route('id'))-> where('day', '=', 'Thursday')->where('status', '=', 1)->get();
+        $schedule = Schedule::where('speakerID','=', $request->route('id'))-> where('day', '=', 'Thursday')->where('status', '=', 1)->get();
         return $schedule;
     }
 
     public function getDayScheduleFriday(Request $request){
-        $schedule = Schedule::join('speakers', 'speakerID', '=', 'speakers.id')->where('speakerID',
-        '=', $request->route('id'))-> where('day', '=', 'Friday')->where('status', '=', 1)->get();
+        $schedule = Schedule::where('speakerID','=', $request->route('id'))-> where('day', '=', 'Friday')->where('status', '=', 1)->get();
         return $schedule;
     }
 
     public function getDayScheduleSaturday(Request $request){
-        $schedule = Schedule::join('speakers', 'speakerID', '=', 'speakers.id')->where('speakerID',
-        '=', $request->route('id'))-> where('day', '=', 'Saturday')->where('status', '=', 1)->get();
+        $schedule = Schedule::where('speakerID','=', $request->route('id'))-> where('day', '=', 'Saturday')->where('status', '=', 1)->get();
         return $schedule;
     }
 
     public function getDayScheduleSunday(Request $request){
-        $schedule = Schedule::join('speakers', 'speakerID', '=', 'speakers.id')->where('speakerID',
-        '=', $request->route('id'))-> where('day', '=', 'Sunday')->where('status', '=', 1)->get();
+        $schedule = Schedule::where('speakerID','=', $request->route('id'))-> where('day', '=', 'Sunday')->where('status', '=', 1)->get();
         return $schedule;
     }
 
@@ -141,4 +137,26 @@ class ScheduleController extends Controller
         $schedule->delete();
         return redirect()->back();
     }
+
+    public function updateStatusScheduleByUser($scheduleID){
+        if(Auth::check()){
+            if(auth()->user()->role == "admin"){
+                return redirect()->to('/admin');
+            }
+        }
+        $userID = auth()->user()->id;    
+        
+        $schedule = Schedule::find($scheduleID);
+        $schedule->status = 0;
+        $schedule->save();
+
+        //insert schedule to transaction list
+        app('App\Http\Controllers\TransactionController')->insertScheduleToTransaction($schedule);
+
+        alert()->success('Schedule Booked', "Go to <a href='/transactions/$userID'>Transaction List</a> to process this booking")->toHtml();
+
+        return redirect()->back();
+
+    }
+
 }

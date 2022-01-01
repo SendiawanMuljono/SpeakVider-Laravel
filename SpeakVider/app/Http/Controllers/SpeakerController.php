@@ -19,7 +19,7 @@ class SpeakerController extends Controller
         }
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
         $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleMonday($request);
-        return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule);
+        return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule)->with('day','Monday');
     }
 
     public function getDetailSpeakerTuesday(Request $request){
@@ -30,7 +30,7 @@ class SpeakerController extends Controller
         }
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
         $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleTuesday($request);
-        return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule);
+        return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule)->with('day','Tuesday');
     }
 
     public function getDetailSpeakerWednesday(Request $request){
@@ -41,7 +41,7 @@ class SpeakerController extends Controller
         }
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
         $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleWednesday($request);
-        return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule);
+        return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule)->with('day','Wednesday');
     }
 
     public function getDetailSpeakerThursday(Request $request){
@@ -52,7 +52,7 @@ class SpeakerController extends Controller
         }
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
         $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleThursday($request);
-        return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule);
+        return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule)->with('day','Thursday');
     }
 
     public function getDetailSpeakerFriday(Request $request){
@@ -63,19 +63,19 @@ class SpeakerController extends Controller
         }
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
         $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleFriday($request);
-        return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule);
+        return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule)->with('day','Friday');
     }
 
     public function getDetailSpeakerSaturday(Request $request){
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
         $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleSaturday($request);
-        return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule);
+        return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule)->with('day','Saturday');
     }
 
     public function getDetailSpeakerSunday(Request $request){
         $speaker = Speaker::where('id', '=', $request->route('id'))->first();
         $schedule = app('App\Http\Controllers\ScheduleController')->getDayScheduleSunday($request);
-        return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule);
+        return view('speakerdetail')->with('speaker', $speaker)->with('schedule', $schedule)->with('day','Sunday');
     }
 
     public function viewAllSpeakers(){

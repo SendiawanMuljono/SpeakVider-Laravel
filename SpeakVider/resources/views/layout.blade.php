@@ -29,7 +29,7 @@
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="/allspeakers">All Speakers</a>
                         <li class="nav-item">
-                            <a class="nav-link" href="/transactions/{{auth()->user()->id}}">Transactions</a>
+                            <a class="nav-link" href="{{ Auth::check() ? "/transactions/auth()->user->id" : "/login" }}">Transactions</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/aboutus">About Us</a>

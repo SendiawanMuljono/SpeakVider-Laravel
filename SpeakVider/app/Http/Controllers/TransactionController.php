@@ -35,7 +35,7 @@ class TransactionController extends Controller
         }
         $currentUser = User::where('id', $userID) -> first();
         $countTransactions = Transaction::where('userID', $userID) -> count();
-        $transactions = Transaction::where('userID', $userID) -> simplePaginate(10);
+        $transactions = Transaction::where('userID', $userID) -> get();
         return view('listtransactionsuser', [
             'title' => 'Transactions',
             'currentUser' => $currentUser,

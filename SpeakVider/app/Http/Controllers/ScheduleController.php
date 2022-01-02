@@ -142,21 +142,24 @@ class ScheduleController extends Controller
         if(Auth::check()){
             if(auth()->user()->role == "admin"){
                 return redirect()->to('/admin');
-            }
-        }
-        $userID = auth()->user()->id;    
+            }  
         
-        $schedule = Schedule::find($scheduleID);
-        $schedule->status = 0;
-        $schedule->save();
+            $schedule = Schedule::find($scheduleID);
+            $schedule->status = 0;
+            $schedule->save();
 
-        //insert schedule to transaction list
-        app('App\Http\Controllers\TransactionController')->insertScheduleToTransaction($schedule);
+            //insert schedule to transaction list
+            app('App\Http\Controllers\TransactionController')->insertScheduleToTransaction($schedule);
 
-        alert()->success('Schedule Booked', "Go to <a href='/transactions/$userID'>Transaction List</a> to process this booking")->toHtml();
+            alert()->success('Schedule Booked', "Go to <a href='/transactions'>Transaction List</a> to process this booking")->toHtml();
 
-        return redirect()->back();
+            return redirect()->back();
+        } else {
 
+            alert()->error("Oops..Access denied", 'Do login first to book the schedule');
+
+            return redirect()->back();
+        }
     }
 
 }

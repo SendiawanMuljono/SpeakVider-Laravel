@@ -27,21 +27,27 @@ class TransactionController extends Controller
         ]);
     }
 
-    public function viewTransactionsByUser($userID){
+    public function viewTransactionsByUser(){
         if(Auth::check()){
             if(auth()->user()->role == "admin"){
                 return redirect()->to('/admin');
             }
+            $userID = auth()->user()->id;
+            $currentUser = User::where('id', $userID) -> first();
+            $countTransactions = Transaction::where('userID', $userID) -> count();
+            $transactions = Transaction::where('userID', $userID) -> get();
+            return view('listtransactionsuser', [
+                'title' => 'Transactions',
+                'currentUser' => $currentUser,
+                'countTransactions' => $countTransactions,
+                'transactions' => $transactions,
+            ]);
+        } else {
+            
+            alert()->error("Oops..Access denied", 'Do login first to access transactions menu');
+
+            return redirect()->back();
         }
-        $currentUser = User::where('id', $userID) -> first();
-        $countTransactions = Transaction::where('userID', $userID) -> count();
-        $transactions = Transaction::where('userID', $userID) -> get();
-        return view('listtransactionsuser', [
-            'title' => 'Transactions',
-            'currentUser' => $currentUser,
-            'countTransactions' => $countTransactions,
-            'transactions' => $transactions,
-        ]);
     }
 
     public function updateTransactionStatusByUser($transactionID){
@@ -65,12 +71,15 @@ class TransactionController extends Controller
             if(auth()->user()->role == "admin"){
                 return redirect()->to('/admin');
             }
+
+            $userID = auth()->user()->id;
+
+            $transaction = new Transaction();
+            $transaction->userID = $userID;
+            $transaction->scheduleID = $schedule->id;
+            $transaction->transactionDate = Carbon::now();
+            $transaction->status = 'undone';
+            $transaction->save();
         }
-        $transaction = new Transaction();
-        $transaction->userID = auth()->user()->id;
-        $transaction->scheduleID = $schedule->id;
-        $transaction->transactionDate = Carbon::now();
-        $transaction->status = 'undone';
-        $transaction->save();
     }
 }

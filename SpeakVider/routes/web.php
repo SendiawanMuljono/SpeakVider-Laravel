@@ -28,7 +28,7 @@ Route::get('/home', [HomeController::class, 'viewHome']);
 
 Route::get('/allspeakers', [SpeakerController::class, 'viewAllSpeakers']);
 
-Route::get('/transactions/{userID}', [TransactionController::class, 'viewTransactionsbyUser'])->middleware('auth');
+Route::get('/transactions', [TransactionController::class, 'viewTransactionsbyUser']);
 
 Route::put('/transactions/updatestatus/{transactionID}', [TransactionController::class, 'updateTransactionStatusByUser']);
 

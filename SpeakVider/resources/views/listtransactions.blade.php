@@ -20,7 +20,11 @@
                         <td>{{ $transaction->userID }}</td>
                         <td>{{ $transaction->scheduleID }}</td>
                         <td>{{ $transaction->transactionDate }}</td>
-                        <td>{{ $transaction->status }}</td>
+                        @if ($transaction->status == 'undone')
+                            <td class="text-danger">{{ $transaction->status }}</td>
+                        @else
+                            <td class="text-success">{{ $transaction->status }}</td>
+                        @endif
                     </tr>
                 @endforeach
             </tbody>

@@ -53,8 +53,8 @@
                                                     <td>: <span class="font-weight-bold">{{ $transaction->schedule->speakers->name}}</span></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Time</td>
-                                                    <td>: <span class="font-weight-bold">{{$transaction->schedule->startTime}}-{{$transaction->schedule->endTime}}</span></td>
+                                                    <td>Schedule</td>
+                                                    <td>: <span class="font-weight-bold">{{$transaction->schedule->startTime}}-{{$transaction->schedule->endTime}} ({{$transaction->schedule->day}})</span></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Price</td>
@@ -122,9 +122,7 @@
                             Transactions
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">No Data</h5>
-                                <p class="card-text">Let's make Transaction with our Speakers</p>
-                                <a href="/allspeakers" class="btn btn-lg btn-primary font-weight-bold">See All Speakers</a>
+                                <h5 class="card-title">No Transaction History</h5>
                             </div>
                         </div>
                     @else

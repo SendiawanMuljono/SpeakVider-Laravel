@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="{{ asset('/assets/css/login.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css') }}">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light navigasi border-bottom border-dark    ">
@@ -28,16 +27,6 @@
                         <a class="nav-link" href="/register">Register</a>
                     </li>
                 </ul>
-
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ms-3">
-                        need
-                    </li>
-                    <li class="nav-item ms-1 text-primary">
-                         Help?
-                    </li>
-                </ul>
-
             </div>
         </div>
     </nav>
@@ -86,10 +75,6 @@
                     <button class=" mt-5 rounded-pill"type="submit">
                         Login
                     </button>
-                </div>
-
-                <div class="forgetpass mt-5">
-                    <p>Forget Your Password ?</p>
                 </div>
 
                 <div class="signup">

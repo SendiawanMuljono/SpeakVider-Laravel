@@ -63,6 +63,8 @@
             <p class="mt-2 mb-2">Copyright © 2021 SpeakVider</p>
         </div>
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+
+        @include('sweetalert::alert')
     </body>
 </html>
 <link rel="stylesheet" href="{{ asset('assets/css/layout.css') }}">

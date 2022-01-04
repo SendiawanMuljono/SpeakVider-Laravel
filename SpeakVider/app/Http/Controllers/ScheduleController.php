@@ -79,7 +79,8 @@ class ScheduleController extends Controller
         }
         $validated = $request->validate([
             'speakerID' => 'exists:speakers,id',
-            'price' => 'gt:299999'
+            'price' => 'gt:299999',
+            'day' => 'filled'
         ]);
         $schedule = new Schedule();
         $schedule->speakerID = $request->speakerID;
@@ -142,8 +143,8 @@ class ScheduleController extends Controller
         if(Auth::check()){
             if(auth()->user()->role == "admin"){
                 return redirect()->to('/admin');
-            }  
-        
+            }
+
             $schedule = Schedule::find($scheduleID);
             $schedule->status = 0;
             $schedule->save();

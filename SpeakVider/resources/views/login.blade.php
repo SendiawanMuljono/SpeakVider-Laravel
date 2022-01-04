@@ -77,7 +77,8 @@
                     </button>
                 </div>
 
-                <div class="signup">
+                <div class="signup mt-3">
+                    <p>or</p>
                     <a href="/register">
                         <p>Sign Up</p>
                     </a>

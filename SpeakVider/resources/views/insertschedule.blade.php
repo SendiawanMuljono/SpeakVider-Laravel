@@ -9,7 +9,15 @@
                 <label for="speakerID">Speaker ID</label>
                 <input type="number" name="speakerID" required><br>
                 <label for="day">Day</label>
-                <input type="text" name="day" placeholder="Monday/Tuesday/..." required><br>
+                <select name="day" id="day" required>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                </select><br>
                 <label for="startTime">Start Time</label>
                 <input type="time" name="startTime" placeholder="start time" required><br>
                 <label for="endTime">End Time</label>

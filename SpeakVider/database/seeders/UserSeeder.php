@@ -16,9 +16,9 @@ class UserSeeder extends Seeder
     {
         $users = [
             ['email' => 'admin@speakvider.com', 'password' => bcrypt('admin'), 'role' => 'admin', 'phoneNumber' => '1111'],
-            ['email' => 'user1@gmail.com', 'password' => bcrypt('user1'), 'role' => 'user', 'phoneNumber' => '1000'],
-            ['email' => 'user2@gmail.com', 'password' => bcrypt('user2'), 'role' => 'user', 'phoneNumber' => '2000'],
-            ['email' => 'user3@gmail.com', 'password' => bcrypt('user3'), 'role' => 'user', 'phoneNumber' => '3000']
+            ['email' => 'user1@user.com', 'password' => bcrypt('user1'), 'role' => 'user', 'phoneNumber' => '1000'],
+            ['email' => 'user2@user.com', 'password' => bcrypt('user2'), 'role' => 'user', 'phoneNumber' => '2000'],
+            ['email' => 'user3@user.com', 'password' => bcrypt('user3'), 'role' => 'user', 'phoneNumber' => '3000']
         ];
 
         DB::table('users')->insert($users);
